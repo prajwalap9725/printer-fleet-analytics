@@ -1,0 +1,4 @@
+[state] restored: 143109 readings, 1342 events
+[backend] listening on http://localhost:3001
+[backend] 8 printer profiles loaded (anomaly window = 3 consecutive out-of-bounds readings)
+[backend] feed readings with: python replay_dataset.py --post http://localhost:3001/api/telemetry

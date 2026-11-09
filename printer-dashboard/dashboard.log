@@ -1,0 +1,745 @@
+(node:11900) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+(node:11900) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:11900) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
+Compiled successfully!
+
+You can now view printer-dashboard-visualizer in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://172.16.67.179:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled [1m[32msuccessfully[39m[22m
+No issues found.
+Failed to compile.
+
+Module not found: Error: Can't resolve './reportWebVitals' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'
+[1m[31mERROR[39m[22m in [1m./src/index.tsx[39m[22m [1m[32m8:0-48[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './reportWebVitals' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/index.tsx:5:29
+TS2307: Cannot find module './reportWebVitals' or its corresponding type declarations.
+  [0m [90m 3 |[39m [36mimport[39m [32m'./index.css'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m [33mApp[39m [36mfrom[39m [32m'./App'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m reportWebVitals [36mfrom[39m [32m'./reportWebVitals'[39m[33m;[39m
+   [90m   |[39m                             [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m
+   [90m 7 |[39m [36mconst[39m root [33m=[39m [33mReactDOM[39m[33m.[39mcreateRoot(
+   [90m 8 |[39m   document[33m.[39mgetElementById([32m'root'[39m) [36mas[39m [33mHTMLElement[39m[0m
+
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+No issues found.
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/OverviewTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m7:0-51[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/OverviewTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m8:0-49[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/AnomalyTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m9:0-53[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/TelemetryTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m10:0-55[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/PredictionTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m11:0-57[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+webpack compiled with [1m[31m5 errors[39m[22m and [1m[33m1 warning[39m[22m
+Compiling...
+ERROR in src/App.tsx:4:25
+TS2307: Cannot find module './components/OverviewTab' or its corresponding type declarations.
+  [0m [90m 2 |[39m [36mimport[39m axios [36mfrom[39m [32m'axios'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mOverview[39m[33m,[39m [33mDistributions[39m[33m,[39m [33mTrends[39m[33m,[39m [33mPivot[39m[33m,[39m [33mPrinterRules[39m[33m,[39m [33mLiveStats[39m } [36mfrom[39m [32m'./analytics.types'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+   [90m   |[39m                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:5:24
+TS2307: Cannot find module './components/AnomalyTab' or its corresponding type declarations.
+  [0m [90m 3 |[39m [36mimport[39m { [33mOverview[39m[33m,[39m [33mDistributions[39m[33m,[39m [33mTrends[39m[33m,[39m [33mPivot[39m[33m,[39m [33mPrinterRules[39m[33m,[39m [33mLiveStats[39m } [36mfrom[39m [32m'./analytics.types'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m   |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:6:26
+TS2307: Cannot find module './components/TelemetryTab' or its corresponding type declarations.
+  [0m [90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m   |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m 9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:7:27
+TS2307: Cannot find module './components/PredictionTab' or its corresponding type declarations.
+  [0m [90m  5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m    |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m[0m
+
+ERROR in src/App.tsx:8:28
+TS2307: Cannot find module './components/LiveMonitorTab' or its corresponding type declarations.
+  [0m [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m    |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m
+   [90m 11 |[39m [36mconst[39m [33mAPI[39m [33m=[39m process[33m.[39menv[33m.[39m[33mREACT_APP_API_BASE[39m [33m||[39m [32m'http://localhost:3001'[39m[33m;[39m[0m
+
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/OverviewTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m7:0-51[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/OverviewTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m8:0-49[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/AnomalyTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m9:0-53[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/TelemetryTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m10:0-55[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/PredictionTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m11:0-57[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+webpack compiled with [1m[31m5 errors[39m[22m and [1m[33m1 warning[39m[22m
+ERROR in src/App.tsx:4:25
+TS2307: Cannot find module './components/OverviewTab' or its corresponding type declarations.
+  [0m [90m 2 |[39m [36mimport[39m axios [36mfrom[39m [32m'axios'[39m[33m;[39m
+   [90m 3 |[39m [36mimport[39m { [33mOverview[39m[33m,[39m [33mDistributions[39m[33m,[39m [33mTrends[39m[33m,[39m [33mPivot[39m[33m,[39m [33mPrinterRules[39m[33m,[39m [33mLiveStats[39m } [36mfrom[39m [32m'./analytics.types'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+   [90m   |[39m                         [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:5:24
+TS2307: Cannot find module './components/AnomalyTab' or its corresponding type declarations.
+  [0m [90m 3 |[39m [36mimport[39m { [33mOverview[39m[33m,[39m [33mDistributions[39m[33m,[39m [33mTrends[39m[33m,[39m [33mPivot[39m[33m,[39m [33mPrinterRules[39m[33m,[39m [33mLiveStats[39m } [36mfrom[39m [32m'./analytics.types'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m   |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:6:26
+TS2307: Cannot find module './components/TelemetryTab' or its corresponding type declarations.
+  [0m [90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m   |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m 9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:7:27
+TS2307: Cannot find module './components/PredictionTab' or its corresponding type declarations.
+  [0m [90m  5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m    |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m[0m
+
+ERROR in src/App.tsx:8:28
+TS2307: Cannot find module './components/LiveMonitorTab' or its corresponding type declarations.
+  [0m [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m    |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m
+   [90m 11 |[39m [36mconst[39m [33mAPI[39m [33m=[39m process[33m.[39menv[33m.[39m[33mREACT_APP_API_BASE[39m [33m||[39m [32m'http://localhost:3001'[39m[33m;[39m[0m
+
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/AnomalyTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m8:0-49[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/AnomalyTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m9:0-53[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/TelemetryTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m10:0-55[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/PredictionTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m11:0-57[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+webpack compiled with [1m[31m4 errors[39m[22m and [1m[33m1 warning[39m[22m
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/App.tsx:5:24
+TS2307: Cannot find module './components/AnomalyTab' or its corresponding type declarations.
+  [0m [90m 3 |[39m [36mimport[39m { [33mOverview[39m[33m,[39m [33mDistributions[39m[33m,[39m [33mTrends[39m[33m,[39m [33mPivot[39m[33m,[39m [33mPrinterRules[39m[33m,[39m [33mLiveStats[39m } [36mfrom[39m [32m'./analytics.types'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m   |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:6:26
+TS2307: Cannot find module './components/TelemetryTab' or its corresponding type declarations.
+  [0m [90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m   |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m 9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:7:27
+TS2307: Cannot find module './components/PredictionTab' or its corresponding type declarations.
+  [0m [90m  5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m    |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m[0m
+
+ERROR in src/App.tsx:8:28
+TS2307: Cannot find module './components/LiveMonitorTab' or its corresponding type declarations.
+  [0m [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m    |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m
+   [90m 11 |[39m [36mconst[39m [33mAPI[39m [33m=[39m process[33m.[39menv[33m.[39m[33mREACT_APP_API_BASE[39m [33m||[39m [32m'http://localhost:3001'[39m[33m;[39m[0m
+
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/AnomalyTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m8:0-49[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/AnomalyTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m9:0-53[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/TelemetryTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m10:0-55[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/PredictionTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m11:0-57[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+webpack compiled with [1m[31m4 errors[39m[22m and [1m[33m1 warning[39m[22m
+ERROR in src/App.tsx:5:24
+TS2307: Cannot find module './components/AnomalyTab' or its corresponding type declarations.
+  [0m [90m 3 |[39m [36mimport[39m { [33mOverview[39m[33m,[39m [33mDistributions[39m[33m,[39m [33mTrends[39m[33m,[39m [33mPivot[39m[33m,[39m [33mPrinterRules[39m[33m,[39m [33mLiveStats[39m } [36mfrom[39m [32m'./analytics.types'[39m[33m;[39m
+   [90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m   |[39m                        [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:6:26
+TS2307: Cannot find module './components/TelemetryTab' or its corresponding type declarations.
+  [0m [90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m   |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m 9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:7:27
+TS2307: Cannot find module './components/PredictionTab' or its corresponding type declarations.
+  [0m [90m  5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m    |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m[0m
+
+ERROR in src/App.tsx:8:28
+TS2307: Cannot find module './components/LiveMonitorTab' or its corresponding type declarations.
+  [0m [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m    |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m
+   [90m 11 |[39m [36mconst[39m [33mAPI[39m [33m=[39m process[33m.[39menv[33m.[39m[33mREACT_APP_API_BASE[39m [33m||[39m [32m'http://localhost:3001'[39m[33m;[39m[0m
+
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/TelemetryTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m9:0-53[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/TelemetryTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m10:0-55[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/PredictionTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m11:0-57[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+webpack compiled with [1m[31m3 errors[39m[22m and [1m[33m1 warning[39m[22m
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/App.tsx:6:26
+TS2307: Cannot find module './components/TelemetryTab' or its corresponding type declarations.
+  [0m [90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m   |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m 9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:7:27
+TS2307: Cannot find module './components/PredictionTab' or its corresponding type declarations.
+  [0m [90m  5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m    |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m[0m
+
+ERROR in src/App.tsx:8:28
+TS2307: Cannot find module './components/LiveMonitorTab' or its corresponding type declarations.
+  [0m [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m    |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m
+   [90m 11 |[39m [36mconst[39m [33mAPI[39m [33m=[39m process[33m.[39menv[33m.[39m[33mREACT_APP_API_BASE[39m [33m||[39m [32m'http://localhost:3001'[39m[33m;[39m[0m
+
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/TelemetryTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m9:0-53[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/TelemetryTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m10:0-55[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/PredictionTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m11:0-57[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+webpack compiled with [1m[31m3 errors[39m[22m and [1m[33m1 warning[39m[22m
+ERROR in src/App.tsx:6:26
+TS2307: Cannot find module './components/TelemetryTab' or its corresponding type declarations.
+  [0m [90m 4 |[39m [36mimport[39m [33mOverviewTab[39m [36mfrom[39m [32m'./components/OverviewTab'[39m[33m;[39m
+   [90m 5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m   |[39m                          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m 8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m 9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m[0m
+
+ERROR in src/App.tsx:7:27
+TS2307: Cannot find module './components/PredictionTab' or its corresponding type declarations.
+  [0m [90m  5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m    |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m[0m
+
+ERROR in src/App.tsx:8:28
+TS2307: Cannot find module './components/LiveMonitorTab' or its corresponding type declarations.
+  [0m [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m    |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m
+   [90m 11 |[39m [36mconst[39m [33mAPI[39m [33m=[39m process[33m.[39menv[33m.[39m[33mREACT_APP_API_BASE[39m [33m||[39m [32m'http://localhost:3001'[39m[33m;[39m[0m
+
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/PredictionTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src\components\TelemetryTab.tsx
+  Line 2:16:  'Scatter' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 65:9:  'anomalous' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 66:9:  'normal' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m10:0-55[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/PredictionTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m11:0-57[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/App.tsx:7:27
+TS2307: Cannot find module './components/PredictionTab' or its corresponding type declarations.
+  [0m [90m  5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m    |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m[0m
+
+ERROR in src/App.tsx:8:28
+TS2307: Cannot find module './components/LiveMonitorTab' or its corresponding type declarations.
+  [0m [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m    |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m
+   [90m 11 |[39m [36mconst[39m [33mAPI[39m [33m=[39m process[33m.[39menv[33m.[39m[33mREACT_APP_API_BASE[39m [33m||[39m [32m'http://localhost:3001'[39m[33m;[39m[0m
+
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/PredictionTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src\components\TelemetryTab.tsx
+  Line 2:16:  'Scatter' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 65:9:  'anomalous' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 66:9:  'normal' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m10:0-55[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/PredictionTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m11:0-57[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m and [1m[33m1 warning[39m[22m
+ERROR in src/App.tsx:7:27
+TS2307: Cannot find module './components/PredictionTab' or its corresponding type declarations.
+  [0m [90m  5 |[39m [36mimport[39m [33mAnomalyTab[39m [36mfrom[39m [32m'./components/AnomalyTab'[39m[33m;[39m
+   [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+   [90m    |[39m                           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m[0m
+
+ERROR in src/App.tsx:8:28
+TS2307: Cannot find module './components/LiveMonitorTab' or its corresponding type declarations.
+  [0m [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m    |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m
+   [90m 11 |[39m [36mconst[39m [33mAPI[39m [33m=[39m process[33m.[39menv[33m.[39m[33mREACT_APP_API_BASE[39m [33m||[39m [32m'http://localhost:3001'[39m[33m;[39m[0m
+
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src\components\TelemetryTab.tsx
+  Line 2:16:  'Scatter' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 65:9:  'anomalous' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 66:9:  'normal' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m11:0-57[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m and [1m[33m1 warning[39m[22m
+ERROR in src/App.tsx:8:28
+TS2307: Cannot find module './components/LiveMonitorTab' or its corresponding type declarations.
+  [0m [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m    |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m
+   [90m 11 |[39m [36mconst[39m [33mAPI[39m [33m=[39m process[33m.[39menv[33m.[39m[33mREACT_APP_API_BASE[39m [33m||[39m [32m'http://localhost:3001'[39m[33m;[39m[0m
+
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src\components\TelemetryTab.tsx
+  Line 2:16:  'Scatter' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 65:9:  'anomalous' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 66:9:  'normal' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.tsx[39m[22m [1m[32m11:0-57[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './components/LiveMonitorTab' in 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src'[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m and [1m[33m1 warning[39m[22m
+ERROR in src/App.tsx:8:28
+TS2307: Cannot find module './components/LiveMonitorTab' or its corresponding type declarations.
+  [0m [90m  6 |[39m [36mimport[39m [33mTelemetryTab[39m [36mfrom[39m [32m'./components/TelemetryTab'[39m[33m;[39m
+   [90m  7 |[39m [36mimport[39m [33mPredictionTab[39m [36mfrom[39m [32m'./components/PredictionTab'[39m[33m;[39m
+  [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m [33mLiveMonitorTab[39m [36mfrom[39m [32m'./components/LiveMonitorTab'[39m[33m;[39m
+   [90m    |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m  9 |[39m [36mimport[39m [32m'./App.css'[39m[33m;[39m
+   [90m 10 |[39m
+   [90m 11 |[39m [36mconst[39m [33mAPI[39m [33m=[39m process[33m.[39menv[33m.[39m[33mREACT_APP_API_BASE[39m [33m||[39m [32m'http://localhost:3001'[39m[33m;[39m[0m
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src\components\TelemetryTab.tsx
+  Line 2:16:  'Scatter' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 65:9:  'anomalous' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 66:9:  'normal' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src\components\TelemetryTab.tsx
+  Line 2:16:  'Scatter' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 65:9:  'anomalous' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 66:9:  'normal' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src\components\TelemetryTab.tsx
+  Line 2:16:  'Scatter' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 65:9:  'anomalous' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 66:9:  'normal' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src\components\TelemetryTab.tsx
+  Line 2:16:  'Scatter' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 65:9:  'anomalous' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 66:9:  'normal' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+No issues found.
+Compiling...
+Failed to compile.
+
+Syntax error: C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src\App.css Unclosed block (424:1)
+ [90m 422 | [39m[33m}[39m
+ [90m 423 | [39m
+[1m[31m>[39m[22m[90m 424 | [39m[33m.filters[39m select [33m{[39m
+ [90m     | [39m[1m[31m^[39m[22m
+ [90m 425 | [39m  background[33m:[39m [36mvar[39m[36m(--panel)[39m[33m;[39m
+ [90m 426 | [39m  color[33m:[39m [36mvar[39m[36m(--text)[39m[33m;[39m
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src\components\TelemetryTab.tsx
+  Line 2:16:  'Scatter' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 65:9:  'anomalous' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 66:9:  'normal' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/App.css[39m[22m (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css)
+Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
+SyntaxError
+
+(424:1) C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\printer-dashboard\src\App.css Unclosed block
+
+ [90m 422 | [39m[33m}[39m
+ [90m 423 | [39m
+[1m[31m>[39m[22m[90m 424 | [39m[33m.filters[39m select [33m{[39m
+ [90m     | [39m[1m[31m^[39m[22m
+ [90m 425 | [39m  background[33m:[39m [36mvar[39m[36m(--panel)[39m[33m;[39m
+ [90m 426 | [39m  color[33m:[39m [36mvar[39m[36m(--text)[39m[33m;[39m
+
+webpack compiled with [1m[31m1 error[39m[22m and [1m[33m1 warning[39m[22m
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src\components\TelemetryTab.tsx
+  Line 2:16:  'Scatter' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 65:9:  'anomalous' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 66:9:  'normal' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 1:28:  'useMemo' is defined but never used  @typescript-eslint/no-unused-vars
+
+src\components\AnomalyTab.tsx
+  Line 17:7:  'RED' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src\components\TelemetryTab.tsx
+  Line 2:16:  'Scatter' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 65:9:  'anomalous' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 66:9:  'normal' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+No issues found.

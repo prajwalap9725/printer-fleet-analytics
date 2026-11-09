@@ -1,0 +1,19 @@
+[state] restored: 0 readings, 0 events
+[backend] listening on http://localhost:3001
+[backend] 8 printer profiles loaded (anomaly window = 3 consecutive out-of-bounds readings)
+[backend] feed readings with: python replay_dataset.pnode:fs:2413
+    return binding.writeFileUtf8(
+                   ^
+
+Error: EBUSY: resource busy or locked, open 'C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\dataset-backend\state.json'
+    at Object.writeFileSync (node:fs:2413:20)
+    at Timeout.persist [as _onTimeout] (C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\dataset-backend\server.js:118:6)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7) {
+  errno: -4082,
+  code: 'EBUSY',
+  syscall: 'open',
+  path: 'C:\\Users\\Akki Prajwal\\OneDrive\\Desktop\\cloud-project\\dataset-backend\\state.json'
+}
+
+Node.js v24.14.1

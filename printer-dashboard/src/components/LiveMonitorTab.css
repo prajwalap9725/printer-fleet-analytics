@@ -1,0 +1,12 @@
+.controls-row {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cde;
+  font-size: 13px;
+}

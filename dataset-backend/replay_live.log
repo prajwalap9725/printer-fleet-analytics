@@ -1,0 +1,41 @@
+Traceback (most recent call last):
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1276, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1322, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1271, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1031, in _send_output
+    self.send(msg)
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 969, in send
+    self.connect()
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 940, in connect
+    self.sock = self._create_connection(
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\socket.py", line 845, in create_connection
+    raise err
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\socket.py", line 833, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\replay_dataset.py", line 48, in <module>
+    for msg in tick: emit(msg)
+  File "C:\Users\Akki Prajwal\OneDrive\Desktop\cloud-project\replay_dataset.py", line 40, in emit
+    urllib.request.urlopen(req, timeout=5).read()
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 1377, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "C:\Users\Akki Prajwal\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error timed out>

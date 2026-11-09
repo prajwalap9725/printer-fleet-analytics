@@ -1,0 +1,347 @@
+alert_id,timestamp,printer_id,metric,value,threshold,severity,message
+ALT-00001,2026-10-15T05:55:00Z,EPR-008,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00002,2026-10-15T06:00:00Z,EPR-008,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00003,2026-10-15T06:05:00Z,EPR-008,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00004,2026-10-15T06:10:00Z,EPR-008,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00005,2026-10-15T06:15:00Z,EPR-008,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00006,2026-10-15T06:20:00Z,EPR-008,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00007,2026-10-15T06:25:00Z,EPR-008,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00008,2026-10-15T06:30:00Z,EPR-008,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00009,2026-10-15T10:15:00Z,EPR-003,vibration_mm_s,3.61,3.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00010,2026-10-15T10:20:00Z,EPR-003,vibration_mm_s,3.72,3.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00011,2026-10-15T10:25:00Z,EPR-003,vibration_mm_s,4.27,3.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00012,2026-10-15T10:30:00Z,EPR-003,vibration_mm_s,4.34,3.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00013,2026-10-15T10:35:00Z,EPR-003,vibration_mm_s,4.45,3.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00014,2026-10-15T10:40:00Z,EPR-003,vibration_mm_s,5.24,3.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00015,2026-10-15T10:45:00Z,EPR-003,vibration_mm_s,5.46,3.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00016,2026-10-15T10:50:00Z,EPR-003,vibration_mm_s,5.18,3.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00017,2026-10-15T10:55:00Z,EPR-003,vibration_mm_s,5.49,3.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00018,2026-10-15T11:00:00Z,EPR-003,vibration_mm_s,6.59,3.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00019,2026-10-15T11:05:00Z,EPR-003,vibration_mm_s,6.61,3.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00020,2026-10-15T11:10:00Z,EPR-006,power_kw,44.7,37.8,WARNING,Power draw above limit
+ALT-00021,2026-10-15T11:15:00Z,EPR-006,power_kw,42.5,37.8,WARNING,Power draw above limit
+ALT-00022,2026-10-15T11:20:00Z,EPR-006,power_kw,49.1,37.8,WARNING,Power draw above limit
+ALT-00023,2026-10-15T11:25:00Z,EPR-006,power_kw,41.7,37.8,WARNING,Power draw above limit
+ALT-00024,2026-10-15T11:30:00Z,EPR-006,power_kw,45.2,37.8,WARNING,Power draw above limit
+ALT-00025,2026-10-15T11:35:00Z,EPR-006,power_kw,44.9,37.8,WARNING,Power draw above limit
+ALT-00026,2026-10-15T11:40:00Z,EPR-006,power_kw,45.3,37.8,WARNING,Power draw above limit
+ALT-00027,2026-10-15T11:45:00Z,EPR-006,power_kw,41.3,37.8,WARNING,Power draw above limit
+ALT-00028,2026-10-15T11:50:00Z,EPR-006,power_kw,47.3,37.8,WARNING,Power draw above limit
+ALT-00029,2026-10-15T11:55:00Z,EPR-006,power_kw,47.7,37.8,WARNING,Power draw above limit
+ALT-00030,2026-10-15T12:00:00Z,EPR-006,power_kw,40.8,37.8,WARNING,Power draw above limit
+ALT-00031,2026-10-15T12:05:00Z,EPR-006,power_kw,45.4,37.8,WARNING,Power draw above limit
+ALT-00032,2026-10-15T12:10:00Z,EPR-006,power_kw,47.4,37.8,WARNING,Power draw above limit
+ALT-00033,2026-10-15T12:10:00Z,EPR-007,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00034,2026-10-15T12:15:00Z,EPR-006,power_kw,46.0,37.8,WARNING,Power draw above limit
+ALT-00035,2026-10-15T12:20:00Z,EPR-006,power_kw,45.5,37.8,WARNING,Power draw above limit
+ALT-00036,2026-10-15T12:20:00Z,EPR-007,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00037,2026-10-15T12:25:00Z,EPR-006,power_kw,43.5,37.8,WARNING,Power draw above limit
+ALT-00038,2026-10-15T12:25:00Z,EPR-007,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00039,2026-10-15T12:30:00Z,EPR-006,power_kw,42.1,37.8,WARNING,Power draw above limit
+ALT-00040,2026-10-15T12:30:00Z,EPR-007,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00041,2026-10-15T12:35:00Z,EPR-006,power_kw,41.3,37.8,WARNING,Power draw above limit
+ALT-00042,2026-10-15T12:35:00Z,EPR-007,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00043,2026-10-15T12:40:00Z,EPR-006,power_kw,43.6,37.8,WARNING,Power draw above limit
+ALT-00044,2026-10-15T12:45:00Z,EPR-006,power_kw,45.1,37.8,WARNING,Power draw above limit
+ALT-00045,2026-10-15T12:50:00Z,EPR-007,paper_jams,4.0,2.0,CRITICAL,Repeated paper jams
+ALT-00046,2026-10-15T13:00:00Z,EPR-007,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00047,2026-10-15T13:20:00Z,EPR-004,power_kw,25.8,23.6,WARNING,Power draw above limit
+ALT-00048,2026-10-15T13:25:00Z,EPR-004,power_kw,26.9,23.6,WARNING,Power draw above limit
+ALT-00049,2026-10-15T13:25:00Z,EPR-007,paper_jams,4.0,2.0,CRITICAL,Repeated paper jams
+ALT-00050,2026-10-15T13:30:00Z,EPR-004,power_kw,26.3,23.6,WARNING,Power draw above limit
+ALT-00051,2026-10-15T13:30:00Z,EPR-007,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00052,2026-10-15T13:35:00Z,EPR-004,power_kw,26.7,23.6,WARNING,Power draw above limit
+ALT-00053,2026-10-15T13:40:00Z,EPR-004,power_kw,28.3,23.6,WARNING,Power draw above limit
+ALT-00054,2026-10-15T13:45:00Z,EPR-004,power_kw,27.3,23.6,WARNING,Power draw above limit
+ALT-00055,2026-10-15T13:50:00Z,EPR-004,power_kw,29.3,23.6,WARNING,Power draw above limit
+ALT-00056,2026-10-15T13:55:00Z,EPR-004,power_kw,28.4,23.6,WARNING,Power draw above limit
+ALT-00057,2026-10-15T14:00:00Z,EPR-004,power_kw,26.3,23.6,WARNING,Power draw above limit
+ALT-00058,2026-10-15T14:05:00Z,EPR-004,power_kw,30.6,23.6,WARNING,Power draw above limit
+ALT-00059,2026-10-15T14:10:00Z,EPR-004,power_kw,27.6,23.6,WARNING,Power draw above limit
+ALT-00060,2026-10-15T19:40:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00061,2026-10-15T19:45:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00062,2026-10-15T19:50:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00063,2026-10-15T19:55:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00064,2026-10-15T20:00:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00065,2026-10-15T20:05:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00066,2026-10-15T20:10:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00067,2026-10-15T20:15:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00068,2026-10-15T20:20:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00069,2026-10-15T20:25:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00070,2026-10-15T20:30:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00071,2026-10-15T20:35:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00072,2026-10-15T20:40:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00073,2026-10-15T20:45:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00074,2026-10-15T20:50:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00075,2026-10-15T20:55:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00076,2026-10-15T21:00:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00077,2026-10-15T21:05:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00078,2026-10-15T21:10:00Z,EPR-004,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00079,2026-10-16T00:05:00Z,EPR-001,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00080,2026-10-16T00:10:00Z,EPR-001,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00081,2026-10-16T00:30:00Z,EPR-001,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00082,2026-10-16T00:35:00Z,EPR-001,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00083,2026-10-16T00:40:00Z,EPR-001,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00084,2026-10-16T00:45:00Z,EPR-001,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00085,2026-10-16T00:50:00Z,EPR-001,paper_jams,4.0,2.0,CRITICAL,Repeated paper jams
+ALT-00086,2026-10-16T00:55:00Z,EPR-001,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00087,2026-10-16T01:00:00Z,EPR-008,vibration_mm_s,3.46,3.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00088,2026-10-16T01:05:00Z,EPR-008,vibration_mm_s,3.38,3.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00089,2026-10-16T01:10:00Z,EPR-008,vibration_mm_s,3.67,3.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00090,2026-10-16T01:15:00Z,EPR-008,vibration_mm_s,3.79,3.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00091,2026-10-16T01:20:00Z,EPR-008,vibration_mm_s,4.2,3.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00092,2026-10-16T01:25:00Z,EPR-008,vibration_mm_s,4.49,3.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00093,2026-10-16T01:30:00Z,EPR-008,vibration_mm_s,4.64,3.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00094,2026-10-16T01:35:00Z,EPR-008,vibration_mm_s,5.16,3.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00095,2026-10-16T01:40:00Z,EPR-008,vibration_mm_s,5.37,3.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00096,2026-10-16T01:45:00Z,EPR-008,vibration_mm_s,5.56,3.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00097,2026-10-16T03:05:00Z,EPR-003,temperature_c,65.4,65.0,CRITICAL,Temperature above threshold
+ALT-00098,2026-10-16T03:10:00Z,EPR-003,temperature_c,65.6,65.0,CRITICAL,Temperature above threshold
+ALT-00099,2026-10-16T03:15:00Z,EPR-003,temperature_c,67.3,65.0,CRITICAL,Temperature above threshold
+ALT-00100,2026-10-16T03:20:00Z,EPR-003,temperature_c,68.0,65.0,CRITICAL,Temperature above threshold
+ALT-00101,2026-10-16T03:25:00Z,EPR-003,temperature_c,67.8,65.0,CRITICAL,Temperature above threshold
+ALT-00102,2026-10-16T03:30:00Z,EPR-003,temperature_c,69.8,65.0,CRITICAL,Temperature above threshold
+ALT-00103,2026-10-16T03:35:00Z,EPR-003,temperature_c,68.8,65.0,CRITICAL,Temperature above threshold
+ALT-00104,2026-10-16T03:40:00Z,EPR-003,temperature_c,69.7,65.0,CRITICAL,Temperature above threshold
+ALT-00105,2026-10-16T03:45:00Z,EPR-003,temperature_c,70.0,65.0,CRITICAL,Temperature above threshold
+ALT-00106,2026-10-16T03:50:00Z,EPR-003,temperature_c,70.2,65.0,CRITICAL,Temperature above threshold
+ALT-00107,2026-10-16T03:55:00Z,EPR-001,power_kw,66.3,51.3,WARNING,Power draw above limit
+ALT-00108,2026-10-16T03:55:00Z,EPR-003,temperature_c,71.4,65.0,CRITICAL,Temperature above threshold
+ALT-00109,2026-10-16T04:00:00Z,EPR-001,power_kw,65.0,51.3,WARNING,Power draw above limit
+ALT-00110,2026-10-16T04:00:00Z,EPR-003,temperature_c,72.4,65.0,CRITICAL,Temperature above threshold
+ALT-00111,2026-10-16T04:05:00Z,EPR-001,power_kw,65.3,51.3,WARNING,Power draw above limit
+ALT-00112,2026-10-16T04:05:00Z,EPR-003,temperature_c,72.3,65.0,CRITICAL,Temperature above threshold
+ALT-00113,2026-10-16T04:10:00Z,EPR-001,power_kw,63.3,51.3,WARNING,Power draw above limit
+ALT-00114,2026-10-16T04:10:00Z,EPR-003,temperature_c,72.7,65.0,CRITICAL,Temperature above threshold
+ALT-00115,2026-10-16T04:15:00Z,EPR-001,power_kw,66.3,51.3,WARNING,Power draw above limit
+ALT-00116,2026-10-16T04:20:00Z,EPR-001,power_kw,57.6,51.3,WARNING,Power draw above limit
+ALT-00117,2026-10-16T04:25:00Z,EPR-001,power_kw,57.4,51.3,WARNING,Power draw above limit
+ALT-00118,2026-10-16T04:30:00Z,EPR-001,power_kw,58.5,51.3,WARNING,Power draw above limit
+ALT-00119,2026-10-16T04:35:00Z,EPR-001,power_kw,58.1,51.3,WARNING,Power draw above limit
+ALT-00120,2026-10-16T04:40:00Z,EPR-001,power_kw,62.4,51.3,WARNING,Power draw above limit
+ALT-00121,2026-10-16T04:45:00Z,EPR-001,power_kw,61.6,51.3,WARNING,Power draw above limit
+ALT-00122,2026-10-16T04:50:00Z,EPR-001,power_kw,54.9,51.3,WARNING,Power draw above limit
+ALT-00123,2026-10-16T04:55:00Z,EPR-001,power_kw,63.6,51.3,WARNING,Power draw above limit
+ALT-00124,2026-10-16T05:00:00Z,EPR-001,power_kw,54.9,51.3,WARNING,Power draw above limit
+ALT-00125,2026-10-16T07:40:00Z,EPR-002,motor_rpm,14225.0,13500.0,WARNING,Motor speed above limit
+ALT-00126,2026-10-16T07:45:00Z,EPR-002,motor_rpm,14521.0,13500.0,WARNING,Motor speed above limit
+ALT-00127,2026-10-16T07:50:00Z,EPR-002,motor_rpm,14616.0,13500.0,WARNING,Motor speed above limit
+ALT-00128,2026-10-16T07:50:00Z,EPR-003,humidity_pct,75.7,70.0,WARNING,Humidity above limit
+ALT-00129,2026-10-16T07:55:00Z,EPR-002,motor_rpm,14511.0,13500.0,WARNING,Motor speed above limit
+ALT-00130,2026-10-16T07:55:00Z,EPR-003,humidity_pct,74.4,70.0,WARNING,Humidity above limit
+ALT-00131,2026-10-16T08:00:00Z,EPR-001,humidity_pct,74.6,70.0,WARNING,Humidity above limit
+ALT-00132,2026-10-16T08:00:00Z,EPR-002,motor_rpm,15138.0,13500.0,WARNING,Motor speed above limit
+ALT-00133,2026-10-16T08:00:00Z,EPR-003,humidity_pct,78.1,70.0,WARNING,Humidity above limit
+ALT-00134,2026-10-16T08:05:00Z,EPR-001,humidity_pct,74.2,70.0,WARNING,Humidity above limit
+ALT-00135,2026-10-16T08:05:00Z,EPR-002,motor_rpm,15007.0,13500.0,WARNING,Motor speed above limit
+ALT-00136,2026-10-16T08:05:00Z,EPR-003,humidity_pct,78.6,70.0,WARNING,Humidity above limit
+ALT-00137,2026-10-16T08:10:00Z,EPR-001,humidity_pct,75.1,70.0,WARNING,Humidity above limit
+ALT-00138,2026-10-16T08:10:00Z,EPR-002,motor_rpm,15193.0,13500.0,WARNING,Motor speed above limit
+ALT-00139,2026-10-16T08:10:00Z,EPR-003,humidity_pct,80.8,70.0,WARNING,Humidity above limit
+ALT-00140,2026-10-16T08:15:00Z,EPR-001,humidity_pct,75.5,70.0,WARNING,Humidity above limit
+ALT-00141,2026-10-16T08:15:00Z,EPR-002,motor_rpm,15122.0,13500.0,WARNING,Motor speed above limit
+ALT-00142,2026-10-16T08:15:00Z,EPR-003,humidity_pct,80.5,70.0,WARNING,Humidity above limit
+ALT-00143,2026-10-16T08:20:00Z,EPR-001,humidity_pct,77.1,70.0,WARNING,Humidity above limit
+ALT-00144,2026-10-16T08:20:00Z,EPR-002,motor_rpm,14992.0,13500.0,WARNING,Motor speed above limit
+ALT-00145,2026-10-16T08:20:00Z,EPR-003,humidity_pct,84.5,70.0,WARNING,Humidity above limit
+ALT-00146,2026-10-16T08:25:00Z,EPR-001,humidity_pct,76.2,70.0,WARNING,Humidity above limit
+ALT-00147,2026-10-16T08:25:00Z,EPR-002,motor_rpm,13939.0,13500.0,WARNING,Motor speed above limit
+ALT-00148,2026-10-16T08:25:00Z,EPR-003,humidity_pct,83.6,70.0,WARNING,Humidity above limit
+ALT-00149,2026-10-16T08:30:00Z,EPR-001,humidity_pct,77.5,70.0,WARNING,Humidity above limit
+ALT-00150,2026-10-16T08:30:00Z,EPR-002,motor_rpm,15519.0,13500.0,WARNING,Motor speed above limit
+ALT-00151,2026-10-16T08:35:00Z,EPR-001,humidity_pct,76.0,70.0,WARNING,Humidity above limit
+ALT-00152,2026-10-16T08:35:00Z,EPR-002,motor_rpm,15491.0,13500.0,WARNING,Motor speed above limit
+ALT-00153,2026-10-16T08:40:00Z,EPR-001,humidity_pct,77.8,70.0,WARNING,Humidity above limit
+ALT-00154,2026-10-16T08:40:00Z,EPR-002,motor_rpm,14677.0,13500.0,WARNING,Motor speed above limit
+ALT-00155,2026-10-16T08:45:00Z,EPR-001,humidity_pct,79.0,70.0,WARNING,Humidity above limit
+ALT-00156,2026-10-16T08:45:00Z,EPR-002,motor_rpm,13919.0,13500.0,WARNING,Motor speed above limit
+ALT-00157,2026-10-16T08:50:00Z,EPR-001,humidity_pct,79.7,70.0,WARNING,Humidity above limit
+ALT-00158,2026-10-16T08:50:00Z,EPR-002,motor_rpm,15120.0,13500.0,WARNING,Motor speed above limit
+ALT-00159,2026-10-16T08:55:00Z,EPR-001,humidity_pct,79.8,70.0,WARNING,Humidity above limit
+ALT-00160,2026-10-16T08:55:00Z,EPR-002,motor_rpm,15155.0,13500.0,WARNING,Motor speed above limit
+ALT-00161,2026-10-16T09:00:00Z,EPR-001,humidity_pct,80.4,70.0,WARNING,Humidity above limit
+ALT-00162,2026-10-16T09:00:00Z,EPR-002,motor_rpm,14789.0,13500.0,WARNING,Motor speed above limit
+ALT-00163,2026-10-16T09:05:00Z,EPR-001,humidity_pct,79.1,70.0,WARNING,Humidity above limit
+ALT-00164,2026-10-16T09:05:00Z,EPR-002,motor_rpm,14998.0,13500.0,WARNING,Motor speed above limit
+ALT-00165,2026-10-16T09:10:00Z,EPR-001,humidity_pct,82.6,70.0,WARNING,Humidity above limit
+ALT-00166,2026-10-16T09:10:00Z,EPR-002,motor_rpm,15192.0,13500.0,WARNING,Motor speed above limit
+ALT-00167,2026-10-16T09:15:00Z,EPR-001,humidity_pct,81.5,70.0,WARNING,Humidity above limit
+ALT-00168,2026-10-16T09:15:00Z,EPR-002,motor_rpm,13909.0,13500.0,WARNING,Motor speed above limit
+ALT-00169,2026-10-16T09:20:00Z,EPR-001,humidity_pct,82.0,70.0,WARNING,Humidity above limit
+ALT-00170,2026-10-16T09:20:00Z,EPR-002,motor_rpm,14453.0,13500.0,WARNING,Motor speed above limit
+ALT-00171,2026-10-16T09:25:00Z,EPR-001,humidity_pct,83.3,70.0,WARNING,Humidity above limit
+ALT-00172,2026-10-16T09:25:00Z,EPR-002,motor_rpm,14072.0,13500.0,WARNING,Motor speed above limit
+ALT-00173,2026-10-16T09:30:00Z,EPR-001,humidity_pct,81.8,70.0,WARNING,Humidity above limit
+ALT-00174,2026-10-16T09:30:00Z,EPR-002,motor_rpm,13988.0,13500.0,WARNING,Motor speed above limit
+ALT-00175,2026-10-16T09:35:00Z,EPR-001,humidity_pct,82.1,70.0,WARNING,Humidity above limit
+ALT-00176,2026-10-16T09:40:00Z,EPR-001,humidity_pct,83.5,70.0,WARNING,Humidity above limit
+ALT-00177,2026-10-16T09:45:00Z,EPR-001,humidity_pct,84.4,70.0,WARNING,Humidity above limit
+ALT-00178,2026-10-16T09:50:00Z,EPR-001,humidity_pct,84.0,70.0,WARNING,Humidity above limit
+ALT-00179,2026-10-16T13:00:00Z,EPR-004,ink_level_pct,12.1,15.0,WARNING,Ink level low
+ALT-00180,2026-10-16T13:55:00Z,EPR-001,humidity_pct,75.5,70.0,WARNING,Humidity above limit
+ALT-00181,2026-10-16T14:00:00Z,EPR-001,humidity_pct,75.2,70.0,WARNING,Humidity above limit
+ALT-00182,2026-10-16T14:05:00Z,EPR-001,humidity_pct,77.1,70.0,WARNING,Humidity above limit
+ALT-00183,2026-10-16T14:10:00Z,EPR-001,humidity_pct,76.6,70.0,WARNING,Humidity above limit
+ALT-00184,2026-10-16T14:15:00Z,EPR-001,humidity_pct,77.6,70.0,WARNING,Humidity above limit
+ALT-00185,2026-10-16T14:20:00Z,EPR-001,humidity_pct,78.0,70.0,WARNING,Humidity above limit
+ALT-00186,2026-10-16T14:25:00Z,EPR-001,humidity_pct,77.8,70.0,WARNING,Humidity above limit
+ALT-00187,2026-10-16T14:30:00Z,EPR-001,humidity_pct,79.1,70.0,WARNING,Humidity above limit
+ALT-00188,2026-10-16T14:35:00Z,EPR-001,humidity_pct,78.3,70.0,WARNING,Humidity above limit
+ALT-00189,2026-10-16T14:40:00Z,EPR-001,humidity_pct,80.4,70.0,WARNING,Humidity above limit
+ALT-00190,2026-10-16T14:45:00Z,EPR-001,humidity_pct,79.9,70.0,WARNING,Humidity above limit
+ALT-00191,2026-10-16T14:50:00Z,EPR-001,humidity_pct,82.6,70.0,WARNING,Humidity above limit
+ALT-00192,2026-10-16T14:55:00Z,EPR-001,humidity_pct,82.0,70.0,WARNING,Humidity above limit
+ALT-00193,2026-10-16T15:00:00Z,EPR-001,humidity_pct,81.5,70.0,WARNING,Humidity above limit
+ALT-00194,2026-10-16T15:05:00Z,EPR-001,humidity_pct,84.1,70.0,WARNING,Humidity above limit
+ALT-00195,2026-10-16T15:10:00Z,EPR-001,humidity_pct,81.4,70.0,WARNING,Humidity above limit
+ALT-00196,2026-10-16T15:15:00Z,EPR-001,humidity_pct,85.0,70.0,WARNING,Humidity above limit
+ALT-00197,2026-10-16T16:55:00Z,EPR-003,power_kw,31.4,24.3,WARNING,Power draw above limit
+ALT-00198,2026-10-16T17:00:00Z,EPR-003,power_kw,26.4,24.3,WARNING,Power draw above limit
+ALT-00199,2026-10-16T17:05:00Z,EPR-003,power_kw,25.7,24.3,WARNING,Power draw above limit
+ALT-00200,2026-10-16T17:10:00Z,EPR-003,power_kw,28.7,24.3,WARNING,Power draw above limit
+ALT-00201,2026-10-16T17:15:00Z,EPR-003,power_kw,27.5,24.3,WARNING,Power draw above limit
+ALT-00202,2026-10-16T17:20:00Z,EPR-003,power_kw,30.4,24.3,WARNING,Power draw above limit
+ALT-00203,2026-10-16T17:25:00Z,EPR-003,power_kw,27.0,24.3,WARNING,Power draw above limit
+ALT-00204,2026-10-16T17:30:00Z,EPR-003,power_kw,29.2,24.3,WARNING,Power draw above limit
+ALT-00205,2026-10-16T17:35:00Z,EPR-003,power_kw,31.2,24.3,WARNING,Power draw above limit
+ALT-00206,2026-10-16T17:40:00Z,EPR-003,power_kw,27.3,24.3,WARNING,Power draw above limit
+ALT-00207,2026-10-16T17:45:00Z,EPR-003,power_kw,27.7,24.3,WARNING,Power draw above limit
+ALT-00208,2026-10-16T17:50:00Z,EPR-003,power_kw,26.5,24.3,WARNING,Power draw above limit
+ALT-00209,2026-10-16T17:55:00Z,EPR-003,power_kw,27.5,24.3,WARNING,Power draw above limit
+ALT-00210,2026-10-16T18:00:00Z,EPR-003,power_kw,27.9,24.3,WARNING,Power draw above limit
+ALT-00211,2026-10-16T18:05:00Z,EPR-003,power_kw,27.6,24.3,WARNING,Power draw above limit
+ALT-00212,2026-10-16T18:10:00Z,EPR-003,power_kw,29.2,24.3,WARNING,Power draw above limit
+ALT-00213,2026-10-16T18:15:00Z,EPR-003,power_kw,26.4,24.3,WARNING,Power draw above limit
+ALT-00214,2026-10-16T22:55:00Z,EPR-006,temperature_c,73.2,72.0,CRITICAL,Temperature above threshold
+ALT-00215,2026-10-16T23:05:00Z,EPR-006,temperature_c,73.4,72.0,CRITICAL,Temperature above threshold
+ALT-00216,2026-10-16T23:10:00Z,EPR-006,temperature_c,73.9,72.0,CRITICAL,Temperature above threshold
+ALT-00217,2026-10-16T23:15:00Z,EPR-006,temperature_c,72.6,72.0,CRITICAL,Temperature above threshold
+ALT-00218,2026-10-16T23:20:00Z,EPR-006,temperature_c,77.1,72.0,CRITICAL,Temperature above threshold
+ALT-00219,2026-10-16T23:25:00Z,EPR-006,temperature_c,75.3,72.0,CRITICAL,Temperature above threshold
+ALT-00220,2026-10-16T23:30:00Z,EPR-006,temperature_c,76.3,72.0,CRITICAL,Temperature above threshold
+ALT-00221,2026-10-16T23:35:00Z,EPR-006,temperature_c,74.9,72.0,CRITICAL,Temperature above threshold
+ALT-00222,2026-10-16T23:40:00Z,EPR-006,temperature_c,78.1,72.0,CRITICAL,Temperature above threshold
+ALT-00223,2026-10-16T23:45:00Z,EPR-006,temperature_c,78.2,72.0,CRITICAL,Temperature above threshold
+ALT-00224,2026-10-16T23:50:00Z,EPR-006,temperature_c,77.8,72.0,CRITICAL,Temperature above threshold
+ALT-00225,2026-10-16T23:55:00Z,EPR-006,temperature_c,79.6,72.0,CRITICAL,Temperature above threshold
+ALT-00226,2026-10-17T00:00:00Z,EPR-006,temperature_c,79.9,72.0,CRITICAL,Temperature above threshold
+ALT-00227,2026-10-17T00:05:00Z,EPR-006,temperature_c,80.1,72.0,CRITICAL,Temperature above threshold
+ALT-00228,2026-10-17T02:45:00Z,EPR-005,temperature_c,67.4,65.0,CRITICAL,Temperature above threshold
+ALT-00229,2026-10-17T02:50:00Z,EPR-005,temperature_c,68.2,65.0,CRITICAL,Temperature above threshold
+ALT-00230,2026-10-17T02:55:00Z,EPR-005,temperature_c,68.7,65.0,CRITICAL,Temperature above threshold
+ALT-00231,2026-10-17T03:00:00Z,EPR-005,temperature_c,68.7,65.0,CRITICAL,Temperature above threshold
+ALT-00232,2026-10-17T03:05:00Z,EPR-005,temperature_c,71.4,65.0,CRITICAL,Temperature above threshold
+ALT-00233,2026-10-17T03:10:00Z,EPR-005,temperature_c,72.5,65.0,CRITICAL,Temperature above threshold
+ALT-00234,2026-10-17T03:15:00Z,EPR-005,temperature_c,72.6,65.0,CRITICAL,Temperature above threshold
+ALT-00235,2026-10-17T03:20:00Z,EPR-005,temperature_c,72.8,65.0,CRITICAL,Temperature above threshold
+ALT-00236,2026-10-17T05:50:00Z,EPR-002,ink_level_pct,13.9,15.0,WARNING,Ink level low
+ALT-00237,2026-10-17T05:55:00Z,EPR-002,ink_level_pct,9.1,15.0,WARNING,Ink level low
+ALT-00238,2026-10-17T10:20:00Z,EPR-008,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00239,2026-10-17T10:25:00Z,EPR-008,paper_jams,4.0,2.0,CRITICAL,Repeated paper jams
+ALT-00240,2026-10-17T10:30:00Z,EPR-008,paper_jams,4.0,2.0,CRITICAL,Repeated paper jams
+ALT-00241,2026-10-17T10:35:00Z,EPR-008,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00242,2026-10-17T10:45:00Z,EPR-008,paper_jams,4.0,2.0,CRITICAL,Repeated paper jams
+ALT-00243,2026-10-17T11:55:00Z,EPR-006,vibration_mm_s,5.1,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00244,2026-10-17T12:00:00Z,EPR-006,vibration_mm_s,5.1,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00245,2026-10-17T12:05:00Z,EPR-006,vibration_mm_s,5.36,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00246,2026-10-17T12:10:00Z,EPR-006,vibration_mm_s,5.65,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00247,2026-10-17T12:15:00Z,EPR-006,vibration_mm_s,6.54,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00248,2026-10-17T12:20:00Z,EPR-006,vibration_mm_s,6.18,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00249,2026-10-17T12:25:00Z,EPR-006,vibration_mm_s,6.9,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00250,2026-10-17T12:30:00Z,EPR-006,vibration_mm_s,6.7,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00251,2026-10-17T12:35:00Z,EPR-006,vibration_mm_s,7.06,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00252,2026-10-17T12:40:00Z,EPR-006,vibration_mm_s,7.55,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00253,2026-10-17T12:45:00Z,EPR-006,vibration_mm_s,7.26,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00254,2026-10-17T12:50:00Z,EPR-006,vibration_mm_s,8.04,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00255,2026-10-17T12:55:00Z,EPR-006,vibration_mm_s,8.45,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00256,2026-10-17T13:00:00Z,EPR-006,vibration_mm_s,8.6,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00257,2026-10-17T13:05:00Z,EPR-006,vibration_mm_s,7.77,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00258,2026-10-17T13:10:00Z,EPR-006,vibration_mm_s,8.61,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00259,2026-10-17T13:15:00Z,EPR-006,vibration_mm_s,8.54,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00260,2026-10-17T13:20:00Z,EPR-006,vibration_mm_s,9.61,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00261,2026-10-17T13:25:00Z,EPR-006,vibration_mm_s,9.14,5.0,CRITICAL,Excessive vibration - inspect bearings
+ALT-00262,2026-10-17T13:35:00Z,EPR-004,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00263,2026-10-17T13:40:00Z,EPR-004,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00264,2026-10-17T13:45:00Z,EPR-004,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00265,2026-10-17T13:55:00Z,EPR-004,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00266,2026-10-17T14:00:00Z,EPR-004,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00267,2026-10-17T14:10:00Z,EPR-004,paper_jams,5.0,2.0,CRITICAL,Repeated paper jams
+ALT-00268,2026-10-17T14:15:00Z,EPR-004,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00269,2026-10-17T14:30:00Z,EPR-004,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00270,2026-10-17T14:35:00Z,EPR-004,paper_jams,3.0,2.0,CRITICAL,Repeated paper jams
+ALT-00271,2026-10-17T14:55:00Z,EPR-005,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00272,2026-10-17T15:00:00Z,EPR-005,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00273,2026-10-17T15:05:00Z,EPR-005,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00274,2026-10-17T15:10:00Z,EPR-005,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00275,2026-10-17T15:15:00Z,EPR-005,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00276,2026-10-17T15:20:00Z,EPR-005,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00277,2026-10-17T15:25:00Z,EPR-005,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00278,2026-10-17T15:30:00Z,EPR-005,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00279,2026-10-17T17:05:00Z,EPR-007,vibration_mm_s,7.31,6.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00280,2026-10-17T17:05:00Z,EPR-007,humidity_pct,74.4,70.0,WARNING,Humidity above limit
+ALT-00281,2026-10-17T17:10:00Z,EPR-007,vibration_mm_s,7.51,6.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00282,2026-10-17T17:10:00Z,EPR-007,humidity_pct,74.7,70.0,WARNING,Humidity above limit
+ALT-00283,2026-10-17T17:15:00Z,EPR-007,vibration_mm_s,8.98,6.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00284,2026-10-17T17:15:00Z,EPR-007,humidity_pct,75.9,70.0,WARNING,Humidity above limit
+ALT-00285,2026-10-17T17:20:00Z,EPR-007,vibration_mm_s,9.76,6.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00286,2026-10-17T17:20:00Z,EPR-007,humidity_pct,78.9,70.0,WARNING,Humidity above limit
+ALT-00287,2026-10-17T17:25:00Z,EPR-007,vibration_mm_s,11.37,6.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00288,2026-10-17T17:25:00Z,EPR-007,humidity_pct,75.4,70.0,WARNING,Humidity above limit
+ALT-00289,2026-10-17T17:30:00Z,EPR-005,power_kw,27.8,21.6,WARNING,Power draw above limit
+ALT-00290,2026-10-17T17:30:00Z,EPR-007,vibration_mm_s,11.39,6.5,CRITICAL,Excessive vibration - inspect bearings
+ALT-00291,2026-10-17T17:30:00Z,EPR-007,humidity_pct,78.9,70.0,WARNING,Humidity above limit
+ALT-00292,2026-10-17T17:35:00Z,EPR-005,power_kw,22.7,21.6,WARNING,Power draw above limit
+ALT-00293,2026-10-17T17:35:00Z,EPR-007,humidity_pct,76.8,70.0,WARNING,Humidity above limit
+ALT-00294,2026-10-17T17:40:00Z,EPR-005,power_kw,25.8,21.6,WARNING,Power draw above limit
+ALT-00295,2026-10-17T17:40:00Z,EPR-007,humidity_pct,78.0,70.0,WARNING,Humidity above limit
+ALT-00296,2026-10-17T17:45:00Z,EPR-005,power_kw,23.8,21.6,WARNING,Power draw above limit
+ALT-00297,2026-10-17T17:45:00Z,EPR-007,humidity_pct,78.9,70.0,WARNING,Humidity above limit
+ALT-00298,2026-10-17T17:50:00Z,EPR-005,power_kw,26.7,21.6,WARNING,Power draw above limit
+ALT-00299,2026-10-17T17:50:00Z,EPR-007,humidity_pct,78.4,70.0,WARNING,Humidity above limit
+ALT-00300,2026-10-17T17:50:00Z,EPR-008,ink_level_pct,11.4,15.0,WARNING,Ink level low
+ALT-00301,2026-10-17T17:55:00Z,EPR-005,power_kw,23.0,21.6,WARNING,Power draw above limit
+ALT-00302,2026-10-17T17:55:00Z,EPR-007,humidity_pct,79.6,70.0,WARNING,Humidity above limit
+ALT-00303,2026-10-17T18:00:00Z,EPR-005,power_kw,27.5,21.6,WARNING,Power draw above limit
+ALT-00304,2026-10-17T18:00:00Z,EPR-007,humidity_pct,79.8,70.0,WARNING,Humidity above limit
+ALT-00305,2026-10-17T18:05:00Z,EPR-005,power_kw,22.7,21.6,WARNING,Power draw above limit
+ALT-00306,2026-10-17T18:05:00Z,EPR-007,humidity_pct,82.2,70.0,WARNING,Humidity above limit
+ALT-00307,2026-10-17T18:10:00Z,EPR-005,power_kw,23.3,21.6,WARNING,Power draw above limit
+ALT-00308,2026-10-17T18:10:00Z,EPR-007,humidity_pct,81.7,70.0,WARNING,Humidity above limit
+ALT-00309,2026-10-17T18:15:00Z,EPR-005,power_kw,25.6,21.6,WARNING,Power draw above limit
+ALT-00310,2026-10-17T18:15:00Z,EPR-007,humidity_pct,82.1,70.0,WARNING,Humidity above limit
+ALT-00311,2026-10-17T18:20:00Z,EPR-005,power_kw,26.3,21.6,WARNING,Power draw above limit
+ALT-00312,2026-10-17T18:20:00Z,EPR-007,humidity_pct,84.7,70.0,WARNING,Humidity above limit
+ALT-00313,2026-10-17T18:25:00Z,EPR-005,power_kw,23.2,21.6,WARNING,Power draw above limit
+ALT-00314,2026-10-17T18:25:00Z,EPR-007,humidity_pct,84.2,70.0,WARNING,Humidity above limit
+ALT-00315,2026-10-17T18:30:00Z,EPR-005,power_kw,23.0,21.6,WARNING,Power draw above limit
+ALT-00316,2026-10-17T18:30:00Z,EPR-007,humidity_pct,83.3,70.0,WARNING,Humidity above limit
+ALT-00317,2026-10-17T18:35:00Z,EPR-005,power_kw,27.8,21.6,WARNING,Power draw above limit
+ALT-00318,2026-10-17T18:40:00Z,EPR-005,power_kw,27.2,21.6,WARNING,Power draw above limit
+ALT-00319,2026-10-17T18:45:00Z,EPR-005,power_kw,25.6,21.6,WARNING,Power draw above limit
+ALT-00320,2026-10-17T18:50:00Z,EPR-005,power_kw,27.3,21.6,WARNING,Power draw above limit
+ALT-00321,2026-10-17T18:55:00Z,EPR-005,power_kw,22.9,21.6,WARNING,Power draw above limit
+ALT-00322,2026-10-17T19:00:00Z,EPR-005,power_kw,24.0,21.6,WARNING,Power draw above limit
+ALT-00323,2026-10-17T19:05:00Z,EPR-005,power_kw,23.5,21.6,WARNING,Power draw above limit
+ALT-00324,2026-10-17T19:10:00Z,EPR-005,power_kw,22.8,21.6,WARNING,Power draw above limit
+ALT-00325,2026-10-17T19:15:00Z,EPR-005,power_kw,28.0,21.6,WARNING,Power draw above limit
+ALT-00326,2026-10-17T19:20:00Z,EPR-005,power_kw,23.6,21.6,WARNING,Power draw above limit
+ALT-00327,2026-10-17T19:55:00Z,EPR-002,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00328,2026-10-17T20:00:00Z,EPR-002,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00329,2026-10-17T20:05:00Z,EPR-002,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00330,2026-10-17T20:10:00Z,EPR-002,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00331,2026-10-17T20:15:00Z,EPR-002,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00332,2026-10-17T20:20:00Z,EPR-002,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00333,2026-10-17T20:25:00Z,EPR-002,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00334,2026-10-17T20:30:00Z,EPR-002,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00335,2026-10-17T20:35:00Z,EPR-002,heartbeat,,,CRITICAL,Device offline - no telemetry received
+ALT-00336,2026-10-17T21:40:00Z,EPR-008,motor_rpm,3378.0,3200.0,WARNING,Motor speed above limit
+ALT-00337,2026-10-17T21:45:00Z,EPR-008,motor_rpm,3458.0,3200.0,WARNING,Motor speed above limit
+ALT-00338,2026-10-17T21:50:00Z,EPR-008,motor_rpm,3646.0,3200.0,WARNING,Motor speed above limit
+ALT-00339,2026-10-17T21:55:00Z,EPR-008,motor_rpm,3576.0,3200.0,WARNING,Motor speed above limit
+ALT-00340,2026-10-17T22:00:00Z,EPR-008,motor_rpm,3524.0,3200.0,WARNING,Motor speed above limit
+ALT-00341,2026-10-17T22:05:00Z,EPR-008,motor_rpm,3576.0,3200.0,WARNING,Motor speed above limit
+ALT-00342,2026-10-17T22:10:00Z,EPR-008,motor_rpm,3297.0,3200.0,WARNING,Motor speed above limit
+ALT-00343,2026-10-17T22:15:00Z,EPR-008,motor_rpm,3384.0,3200.0,WARNING,Motor speed above limit
+ALT-00344,2026-10-17T22:20:00Z,EPR-008,motor_rpm,3483.0,3200.0,WARNING,Motor speed above limit
+ALT-00345,2026-10-17T22:25:00Z,EPR-008,motor_rpm,3325.0,3200.0,WARNING,Motor speed above limit
+ALT-00346,2026-10-17T22:30:00Z,EPR-008,motor_rpm,3606.0,3200.0,WARNING,Motor speed above limit

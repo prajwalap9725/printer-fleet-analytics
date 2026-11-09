@@ -1,0 +1,277 @@
+{
+ "tot": 6912,
+ "totAnom": 416,
+ "pct": "6.02",
+ "alerts": 346,
+ "sevAlert": {
+  "CRITICAL": 157,
+  "WARNING": 189
+ },
+ "printers": [
+  {
+   "id": "EPR-001",
+   "name": "Offset Press A",
+   "model": "HeidelPress XL-106",
+   "type": "Offset",
+   "loc": "Plant 1 - Hall A",
+   "inst": "2019-01-10",
+   "lim": {
+    "temp": "75",
+    "vib": "5.5",
+    "rpm": "13500",
+    "ink": "15",
+    "paper": "10",
+    "humMax": "70",
+    "humMin": "30",
+    "kw": "51.3",
+    "jams": "2"
+   },
+   "rows": 864,
+   "anom": 75,
+   "types": {
+    "INK_LEAK_DROP": 8,
+    "PAPER_JAM_BURST": 13,
+    "POWER_SURGE": 14,
+    "HUMIDITY_SPIKE": 40
+   },
+   "status": {
+    "IDLE": 415,
+    "PRINTING": 424,
+    "MAINTENANCE": 12,
+    "ERROR": 13
+   },
+   "alerts": 62
+  },
+  {
+   "id": "EPR-002",
+   "name": "Offset Press B",
+   "model": "HeidelPress XL-106",
+   "type": "Offset",
+   "loc": "Plant 1 - Hall A",
+   "inst": "2020-02-11",
+   "lim": {
+    "temp": "75",
+    "vib": "5.5",
+    "rpm": "13500",
+    "ink": "15",
+    "paper": "10",
+    "humMax": "70",
+    "humMin": "30",
+    "kw": "50.6",
+    "jams": "2"
+   },
+   "rows": 864,
+   "anom": 44,
+   "types": {
+    "MOTOR_OVERSPEED": 23,
+    "INK_LEAK_DROP": 12,
+    "OFFLINE": 9
+   },
+   "status": {
+    "IDLE": 442,
+    "PRINTING": 413,
+    "OFFLINE": 9
+   },
+   "alerts": 34
+  },
+  {
+   "id": "EPR-003",
+   "name": "Digital Press A",
+   "model": "KonicaJet 6120",
+   "type": "Digital",
+   "loc": "Plant 1 - Hall B",
+   "inst": "2021-03-12",
+   "lim": {
+    "temp": "65",
+    "vib": "3.5",
+    "rpm": "7500",
+    "ink": "15",
+    "paper": "10",
+    "humMax": "70",
+    "humMin": "30",
+    "kw": "24.3",
+    "jams": "2"
+   },
+   "rows": 864,
+   "anom": 56,
+   "types": {
+    "VIBRATION_SPIKE": 11,
+    "OVERHEAT": 20,
+    "HUMIDITY_SPIKE": 8,
+    "POWER_SURGE": 17
+   },
+   "status": {
+    "IDLE": 421,
+    "PRINTING": 436,
+    "MAINTENANCE": 7
+   },
+   "alerts": 50
+  },
+  {
+   "id": "EPR-004",
+   "name": "Digital Press B",
+   "model": "KonicaJet 6120",
+   "type": "Digital",
+   "loc": "Plant 1 - Hall B",
+   "inst": "2022-04-13",
+   "lim": {
+    "temp": "65",
+    "vib": "3.5",
+    "rpm": "7500",
+    "ink": "15",
+    "paper": "10",
+    "humMax": "70",
+    "humMin": "30",
+    "kw": "23.6",
+    "jams": "2"
+   },
+   "rows": 864,
+   "anom": 53,
+   "types": {
+    "INK_LEAK_DROP": 14,
+    "POWER_SURGE": 7,
+    "OFFLINE": 19,
+    "PAPER_JAM_BURST": 13
+   },
+   "status": {
+    "IDLE": 433,
+    "PRINTING": 399,
+    "OFFLINE": 19,
+    "ERROR": 13
+   },
+   "alerts": 40
+  },
+  {
+   "id": "EPR-005",
+   "name": "Digital Press C",
+   "model": "RicohPro C9500",
+   "type": "Digital",
+   "loc": "Plant 2 - Hall A",
+   "inst": "2023-05-14",
+   "lim": {
+    "temp": "65",
+    "vib": "3.5",
+    "rpm": "7200",
+    "ink": "15",
+    "paper": "10",
+    "humMax": "70",
+    "humMin": "30",
+    "kw": "21.6",
+    "jams": "2"
+   },
+   "rows": 864,
+   "anom": 44,
+   "types": {
+    "OVERHEAT": 13,
+    "OFFLINE": 8,
+    "POWER_SURGE": 23
+   },
+   "status": {
+    "IDLE": 411,
+    "PRINTING": 433,
+    "MAINTENANCE": 12,
+    "OFFLINE": 8
+   },
+   "alerts": 39
+  },
+  {
+   "id": "EPR-006",
+   "name": "Cover Press",
+   "model": "HeidelPress CD-74",
+   "type": "Offset",
+   "loc": "Plant 2 - Hall A",
+   "inst": "2019-06-15",
+   "lim": {
+    "temp": "72",
+    "vib": "5.0",
+    "rpm": "11000",
+    "ink": "15",
+    "paper": "10",
+    "humMax": "70",
+    "humMin": "30",
+    "kw": "37.8",
+    "jams": "2"
+   },
+   "rows": 864,
+   "anom": 61,
+   "types": {
+    "POWER_SURGE": 20,
+    "OVERHEAT": 20,
+    "VIBRATION_SPIKE": 21
+   },
+   "status": {
+    "IDLE": 427,
+    "PRINTING": 437
+   },
+   "alerts": 53
+  },
+  {
+   "id": "EPR-007",
+   "name": "Perfect Binder",
+   "model": "MullerBind Pro",
+   "type": "Binding",
+   "loc": "Plant 2 - Hall B",
+   "inst": "2020-07-16",
+   "lim": {
+    "temp": "60",
+    "vib": "6.5",
+    "rpm": "3800",
+    "ink": "15",
+    "paper": "10",
+    "humMax": "70",
+    "humMin": "30",
+    "kw": "16.2",
+    "jams": "2"
+   },
+   "rows": 864,
+   "anom": 35,
+   "types": {
+    "PAPER_JAM_BURST": 17,
+    "VIBRATION_SPIKE": 6,
+    "HUMIDITY_SPIKE": 12
+   },
+   "status": {
+    "IDLE": 448,
+    "PRINTING": 399,
+    "ERROR": 17
+   },
+   "alerts": 33
+  },
+  {
+   "id": "EPR-008",
+   "name": "Large Format",
+   "model": "EpsonSure 9900",
+   "type": "Large-format",
+   "loc": "Plant 2 - Hall C",
+   "inst": "2021-08-17",
+   "lim": {
+    "temp": "60",
+    "vib": "3.0",
+    "rpm": "3200",
+    "ink": "15",
+    "paper": "10",
+    "humMax": "70",
+    "humMin": "30",
+    "kw": "12.2",
+    "jams": "2"
+   },
+   "rows": 864,
+   "anom": 48,
+   "types": {
+    "OFFLINE": 8,
+    "VIBRATION_SPIKE": 11,
+    "PAPER_JAM_BURST": 8,
+    "INK_LEAK_DROP": 10,
+    "MOTOR_OVERSPEED": 11
+   },
+   "status": {
+    "IDLE": 422,
+    "PRINTING": 414,
+    "OFFLINE": 8,
+    "MAINTENANCE": 12,
+    "ERROR": 8
+   },
+   "alerts": 35
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+printer_id,printer_name,model,machine_type,location,install_date,max_temperature_c,max_vibration_mm_s,max_motor_rpm,min_ink_level_pct,min_paper_stock_pct,max_humidity_pct,min_humidity_pct,max_power_kw,max_paper_jams_per_interval
+EPR-001,Offset Press A,HeidelPress XL-106,Offset,Plant 1 - Hall A,2019-01-10,75,5.5,13500,15,10,70,30,51.3,2
+EPR-002,Offset Press B,HeidelPress XL-106,Offset,Plant 1 - Hall A,2020-02-11,75,5.5,13500,15,10,70,30,50.6,2
+EPR-003,Digital Press A,KonicaJet 6120,Digital,Plant 1 - Hall B,2021-03-12,65,3.5,7500,15,10,70,30,24.3,2
+EPR-004,Digital Press B,KonicaJet 6120,Digital,Plant 1 - Hall B,2022-04-13,65,3.5,7500,15,10,70,30,23.6,2
+EPR-005,Digital Press C,RicohPro C9500,Digital,Plant 2 - Hall A,2023-05-14,65,3.5,7200,15,10,70,30,21.6,2
+EPR-006,Cover Press,HeidelPress CD-74,Offset,Plant 2 - Hall A,2019-06-15,72,5.0,11000,15,10,70,30,37.8,2
+EPR-007,Perfect Binder,MullerBind Pro,Binding,Plant 2 - Hall B,2020-07-16,60,6.5,3800,15,10,70,30,16.2,2
+EPR-008,Large Format,EpsonSure 9900,Large-format,Plant 2 - Hall C,2021-08-17,60,3.0,3200,15,10,70,30,12.2,2

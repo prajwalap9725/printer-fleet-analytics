@@ -1,0 +1,758 @@
+
+
+
+MEDBUDDY.ML - A TRUST-AWARE MULTI-DISEASE CLINICAL SCREENING SYSTEM
+WITH CERTIFIED-RISK CONFORMAL PREDICTION, COUNTERFACTUAL
+EXPLANATIONS AND SUBGROUP FAIRNESS AUDITING
+
+Data Science Capstone Project
+[Course Code – CSI3003]
+
+Submitted in partial fulfillment of the requirements for the degree of
+Master of Technology in Integrated Computer Science Engineering
+(Specialization in Data Science)
+in
+School of Computer Science Engineering and Information Systems
+
+by
+AKKI PRAJWAL
+24MID0230
+
+Under the guidance of
+Dr. Sivakumar
+Associate Professor, SCORE
+School of Computer Science Engineering and Information Systems
+VIT, Vellore
+
+
+October, 2026
+
+DECLARATION
+
+I hereby declare that the Data Science Capstone Project entitled “MedBuddy.ML - A Trust-Aware Multi-Disease Clinical Screening System with Certified-Risk Conformal Prediction, Counterfactual Explanations and Subgroup Fairness Auditing” submitted to VIT, Vellore is a record of bonafide work carried out by me. The work embodies results of my own effort, supported where stated by the project repository, its training pipeline and its automated test suite.
+I further declare that the work reported in this project has not been submitted and will not be submitted, either in part or in full, for the award of any other degree or diploma of this institution or any other institution or university.
+
+Place: Vellore
+Date: ____________________
+
+
+
+Signature of the Candidate
+Akki Prajwal
+24MID0230
+
+CERTIFICATE
+
+This is to certify that the Data Science Capstone Project entitled “MedBuddy.ML - A Trust-Aware Multi-Disease Clinical Screening System with Certified-Risk Conformal Prediction, Counterfactual Explanations and Subgroup Fairness Auditing” submitted by Akki Prajwal (24MID0230), in partial fulfillment of the requirements for the award of the degree of Master of Technology in Integrated Computer Science Engineering with specialization in Data Science, VIT, Vellore, is a record of bonafide work carried out by him under my supervision and guidance.
+
+The contents of this report have not been submitted and will not be submitted, either in part or in full, for the award of any other degree or diploma of this institution or any other institution or university. The report attests to the student's work in this capstone project.
+
+
+
+Signature of the VIT SCORE Supervisor
+Dr. Sivakumar
+Associate Professor, SCORE
+
+
+
+
+Internal Examiner                                      External Examiner
+
+
+Head of the Department                                    Department of Software and Systems Engineering
+
+ACKNOWLEDGEMENT
+
+I express my sincere gratitude to my project guide, Dr. Sivakumar, Associate Professor, SCORE, VIT, Vellore, for his academic guidance and support during the project. His feedback on the trust-aware serving layers, the experimental design and the evidence standards used in this report shaped the work substantially.
+I thank the School of Computer Science Engineering and Information Systems, VIT, for the academic environment, the laboratory resources and the course framework that made this capstone possible.
+I am grateful to my family, teachers and friends for their encouragement throughout my studies and project work. The open-source scientific Python ecosystem (scikit-learn, SHAP, FASTAPI, Streamlit) and the maintainers of the Cleveland heart disease and Pima Indians diabetes datasets made this work executable, and I acknowledge all those who contributed indirectly.
+
+Akki Prajwal
+24MID0230
+
+EXECUTIVE SUMMARY
+
+Web-deployed medical machine-learning demonstrations usually stop at a trained model, an explanation plot and a form. This project implements and measures a complete screening system, MedBuddy.ML, for two diseases: heart disease (Cleveland, 1,025 rows) and diabetes (Pima Indians, 768 rows). A benchmark suite trains six classifiers per disease inside identical leakage-safe pipelines, selects the winner by held-out evidence (Logistic Regression, ROC-AUC 0.9250 for heart disease; XGBoost, ROC-AUC 0.8424 for diabetes) and saves everything the serving API needs as a single artifact. A FastAPI backend serves predictions, and a Streamlit frontend renders them with patient-level SHAP attributions.
+The project then adds three trust layers served in the same prediction payload. A Mondrian class-conditional split-conformal layer calibrates on a leakage-safe validation split and reports a prediction set with a &gt;=90% coverage target; when the set is ambiguous the system abstains and routes the case to a clinician-review state (measured empirical coverage 0.936 and 0.940 on untouched test data). An actionable counterfactual service computes the minimal, clinically feasible feature changes that would flip the decision, respecting immutable attributes such as age and sex. A subgroup fairness audit reports error rates by sex and age group at the deployed threshold, including a measured false-negative rate of approximately 0.44 for under-40 patients on the diabetes data.
+All of this is locked behind an automated test suite covering the API contract, calibration integrity, counterfactual achievability and fairness computation. The repository trains, serves, explains, abstains, audits and tests itself, and every number in this report is reproducible from the included commands.
+
+TABLE OF CONTENTS
+
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> TOC \o "1-2" \h \z \u \t "Front Heading,1" </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:hyperlink w:anchor="_Toc91000001" w:history="1"><w:r><w:t xml:space="preserve">DECLARATION</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000001 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>ii
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000002" w:history="1"><w:r><w:t xml:space="preserve">CERTIFICATE</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000002 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>iii
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000003" w:history="1"><w:r><w:t xml:space="preserve">ACKNOWLEDGEMENT</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000003 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>iv
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000004" w:history="1"><w:r><w:t xml:space="preserve">EXECUTIVE SUMMARY</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000004 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>v
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000005" w:history="1"><w:r><w:t xml:space="preserve">LIST OF FIGURES</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000005 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>vii
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000006" w:history="1"><w:r><w:t xml:space="preserve">LIST OF TABLES</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000006 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>viii
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000007" w:history="1"><w:r><w:t xml:space="preserve">LIST OF ABBREVIATIONS</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000007 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>ix
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000008" w:history="1"><w:r><w:t xml:space="preserve">SYMBOLS AND NOTATIONS</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000008 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>x
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000009" w:history="1"><w:r><w:t xml:space="preserve">CHAPTER 1 INTRODUCTION</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000009 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>1
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000010" w:history="1"><w:r><w:t xml:space="preserve">1.1 Objective</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000010 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>1
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000011" w:history="1"><w:r><w:t xml:space="preserve">1.2 Motivation</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000011 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>1
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000012" w:history="1"><w:r><w:t xml:space="preserve">1.3 Background</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000012 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>2
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000013" w:history="1"><w:r><w:t xml:space="preserve">1.4 Scope and boundaries</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000013 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>3
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000014" w:history="1"><w:r><w:t xml:space="preserve">CHAPTER 2 PROJECT DESCRIPTION AND GOALS</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000014 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>4
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000017" w:history="1"><w:r><w:t xml:space="preserve">CHAPTER 3 TECHNICAL SPECIFICATION</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000017 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>6
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000018" w:history="1"><w:r><w:t xml:space="preserve">3.1 Software stack and version evidence</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000018 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>6
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000020" w:history="1"><w:r><w:t xml:space="preserve">3.2 Resource requirements and measurement limits</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000020 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>7
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000022" w:history="1"><w:r><w:t xml:space="preserve">3.3 Functional requirements and implementation status</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000022 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>7
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000024" w:history="1"><w:r><w:t xml:space="preserve">CHAPTER 4 DESIGN APPROACH AND DETAILS</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000024 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>9
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000025" w:history="1"><w:r><w:t xml:space="preserve">4.1 System architecture</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000025 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>9
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000026" w:history="1"><w:r><w:t xml:space="preserve">4.2 Leakage-safe data handling and threshold calibration</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000026 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>9
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000027" w:history="1"><w:r><w:t xml:space="preserve">4.3 Trust layer N1: Mondrian conformal certified-risk inference</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000027 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>9
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000028" w:history="1"><w:r><w:t xml:space="preserve">4.4 Trust layer N2: actionable counterfactual what-ifs</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000028 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>10
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000029" w:history="1"><w:r><w:t xml:space="preserve">4.5 Trust layer N3: subgroup fairness auditing</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000029 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>10
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000031" w:history="1"><w:r><w:t xml:space="preserve">CHAPTER 5 SCHEDULE, TASKS AND MILESTONES</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000031 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>12
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000034" w:history="1"><w:r><w:t xml:space="preserve">CHAPTER 6 PROJECT IMPLEMENTATION AND DEMONSTRATION</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000034 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>14
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000035" w:history="1"><w:r><w:t xml:space="preserve">6.1 Implementation units and interfaces</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000035 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>14
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000037" w:history="1"><w:r><w:t xml:space="preserve">6.2 Dataset composition</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000037 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>15
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000039" w:history="1"><w:r><w:t xml:space="preserve">6.3 Benchmark demonstration</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000039 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>15
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000044" w:history="1"><w:r><w:t xml:space="preserve">CHAPTER 7 COST ANALYSIS, RESULTS AND DISCUSSION</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000044 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>18
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000045" w:history="1"><w:r><w:t xml:space="preserve">7.1 Benchmark results</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000045 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>18
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000048" w:history="1"><w:r><w:t xml:space="preserve">7.2 Conformal certification results</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000048 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>19
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000050" w:history="1"><w:r><w:t xml:space="preserve">7.3 Fairness audit results</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000050 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>20
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000052" w:history="1"><w:r><w:t xml:space="preserve">7.4 Resource quantities and cost evidence</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000052 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>21
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000054" w:history="1"><w:r><w:t xml:space="preserve">7.5 Discussion</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000054 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>21
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000055" w:history="1"><w:r><w:t xml:space="preserve">CHAPTER 8 SUMMARY</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000055 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>22
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000056" w:history="1"><w:r><w:t xml:space="preserve">8.1 Completed work and technical contribution</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000056 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>22
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000057" w:history="1"><w:r><w:t xml:space="preserve">8.2 Results and objective achievement</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000057 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>22
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000058" w:history="1"><w:r><w:t xml:space="preserve">8.3 Limitations</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000058 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>22
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000059" w:history="1"><w:r><w:t xml:space="preserve">8.4 Future enhancements</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000059 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>23
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000060" w:history="1"><w:r><w:t xml:space="preserve">REFERENCES</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000060 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>24
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000061" w:history="1"><w:r><w:t xml:space="preserve">APPENDIX A SELECTED IMPLEMENTATION EXCERPTS</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000061 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>25
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000062" w:history="1"><w:r><w:t xml:space="preserve">APPENDIX B REPRODUCTION AND ARTEFACT CHECKLIST</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000062 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>26
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000064" w:history="1"><w:r><w:t xml:space="preserve">APPENDIX C AUTOMATED TEST SUITE AND API OUTPUTS</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000064 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>27
+
+LIST OF FIGURES
+
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> TOC \h \z \t "Figure Caption,1" </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:hyperlink w:anchor="_Toc91000015" w:history="1"><w:r><w:t xml:space="preserve">Fig. 2.1  Implemented end-to-end system architecture</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000015 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>4
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000030" w:history="1"><w:r><w:t xml:space="preserve">Fig. 4.1  Trust-aware serving layers and their verification evidence: (a) conformal coverage versus the 0.90 guarantee; (b) false-negative rate by subgroup</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000030 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>11
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000040" w:history="1"><w:r><w:t xml:space="preserve">Fig. 6.1  ROC curves across the model zoo, heart disease (held-out test split)</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000040 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>16
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000041" w:history="1"><w:r><w:t xml:space="preserve">Fig. 6.2  ROC curves across the model zoo, diabetes / Pima (held-out test split)</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000041 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>16
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000042" w:history="1"><w:r><w:t xml:space="preserve">Fig. 6.3  Confusion matrix of the selected model at the calibrated threshold, heart disease</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000042 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>17
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000043" w:history="1"><w:r><w:t xml:space="preserve">Fig. 6.4  Confusion matrix of the selected model at the calibrated threshold, diabetes</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000043 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>17
+
+LIST OF TABLES
+
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> TOC \h \z \t "Table Caption,1" </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:hyperlink w:anchor="_Toc91000016" w:history="1"><w:r><w:t xml:space="preserve">Table 2.1  Project goals and acceptance evidence</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000016 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>5
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000019" w:history="1"><w:r><w:t xml:space="preserve">Table 3.1  Software stack and version evidence</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000019 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>6
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000021" w:history="1"><w:r><w:t xml:space="preserve">Table 3.2  Resource requirements and measurement limits</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000021 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>7
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000023" w:history="1"><w:r><w:t xml:space="preserve">Table 3.3  Functional requirements and implementation status</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000023 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>8
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000032" w:history="1"><w:r><w:t xml:space="preserve">Table 5.1  Development phases and available completion evidence</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000032 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>12
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000033" w:history="1"><w:r><w:t xml:space="preserve">Table 5.2  Outstanding work and required acceptance evidence</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000033 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>13
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000036" w:history="1"><w:r><w:t xml:space="preserve">Table 6.1  Main implementation units and interfaces</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000036 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>14
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000038" w:history="1"><w:r><w:t xml:space="preserve">Table 6.2  Recorded dataset composition</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000038 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>15
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000046" w:history="1"><w:r><w:t xml:space="preserve">Table 7.1  Held-out test results across the model zoo, heart disease (156 test rows)</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000046 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>18
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000047" w:history="1"><w:r><w:t xml:space="preserve">Table 7.2  Held-out test results across the model zoo, diabetes / Pima (116 test rows)</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000047 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>19
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000049" w:history="1"><w:r><w:t xml:space="preserve">Table 7.3  Conformal calibration and measured coverage (α = 0.10)</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000049 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>20
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000051" w:history="1"><w:r><w:t xml:space="preserve">Table 7.4  Subgroup fairness audit at the deployed threshold (diabetes / Pima)</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000051 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>20
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000053" w:history="1"><w:r><w:t xml:space="preserve">Table 7.5  Resource quantities and cost evidence</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000053 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>21
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000063" w:history="1"><w:r><w:t xml:space="preserve">Table B.1  Reproduction commands</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000063 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>26
+<w:tab w:val="right" w:leader="dot" w:pos="9350"/></w:tabs></w:pPr><w:hyperlink w:anchor="_Toc91000065" w:history="1"><w:r><w:t xml:space="preserve">Table C.1  Test suite coverage areas</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _Toc91000065 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>27
+
+LIST OF ABBREVIATIONS
+
+Abbreviation
+Full Form
+API
+Application Programming Interface
+AUC
+Area Under the ROC Curve
+BP
+Blood Pressure
+CPU
+Central Processing Unit
+CSV
+Comma-Separated Values
+DiCE
+Diverse Counterfactual Explanations
+ECG
+Electrocardiogram
+FNR
+False Negative Rate
+GDPR
+General Data Protection Regulation
+GPU
+Graphics Processing Unit
+HTTP
+Hypertext Transfer Protocol
+HTTPS
+Hypertext Transfer Protocol Secure
+JSON
+JavaScript Object Notation
+MB
+Megabyte
+ML
+Machine Learning
+MLP
+Multilayer Perceptron
+NaN
+Not a Number
+PDF
+Portable Document Format
+PNG
+Portable Network Graphics
+RBF
+Radial Basis Function
+ROC
+Receiver Operating Characteristic
+SCORE
+School of Computer Science Engineering and Information Systems
+SHAP
+SHapley Additive exPlanations
+SVC
+Support Vector Classifier
+UCI
+University of California, Irvine
+UI
+User Interface
+VIT
+Vellore Institute of Technology
+XGBoost
+eXtreme Gradient Boosting
+Youden-J
+Youden’s J statistic (sensitivity + specificity − 1)
+
+
+SYMBOLS AND NOTATIONS
+
+Symbol
+Meaning
+α
+Conformal miscoverage level (0.10 in this project)
+Š(x)
+Conformal prediction set computed at input x
+P(y ∈ Š(x)) ≥ 1 − α
+Distribution-free coverage guarantee of the prediction set
+Q_c
+Class-conditional nonconformity quantile for class c
+R(x_i)
+Conformity/nonconformity score of calibration example i
+τ*
+Deployed decision threshold, calibrated by Youden-J on validation data
+J
+Youden's J statistic, sensitivity + specificity − 1
+Δ
+L1 normalised distance between a patient and a counterfactual
+FN / FP
+False negative / false positive at the operating threshold
+seed 42
+Random seed fixing every split and model in the benchmark suite
+
+
+CHAPTER 1INTRODUCTION
+1.1 Objective
+The primary objective of this project is to implement an end-to-end clinical screening system for two diseases - heart disease and diabetes - in which the deployed artifact, not a notebook prototype, is the object of study. The system must train a family of candidate models under identical preprocessing, select the winner by held-out evidence, and serve selected predictions through a documented HTTP API with a web interface on top of it.
+A second objective is to make the deployment trustworthy rather than merely accurate. Three trust layers are implemented and measured: a Mondrian class-conditional split-conformal layer that attaches a certified prediction set to every prediction and abstains to a clinician-review state when the set is ambiguous; an actionable counterfactual service that returns the minimal, clinically feasible changes needed to flip the decision; and a subgroup fairness audit that reports error rates by sex and age group at the actual deployed threshold.
+A third objective is honesty about calibration. The decision threshold used in production is not the sklearn default of 0.5; it is a Youden-J threshold tuned on a separate validation split and never tuned on test data, and the data splits are constructed to prevent the duplicate patient rows in the heart data from appearing in both train and test. The completeness objective of the survey - leakage-safe splitting, per-model SHAP explanation, and a locked automated test suite - turns these practices into artefacts that can be inspected rather than claimed.
+1.2 Motivation
+Screening models for heart disease and diabetes are abundant in the literature and in open-source repositories. What is rare is a system that reports how confident it is in each individual prediction, and that is honest about which kinds of patients its errors fall on. A model that achieves good average accuracy can still be dangerous in a screening context if it confidently assigns 'healthy' to a patient who is not; the false negative is the error medicine cannot afford, while a false alarm is recoverable by follow-up testing. This asymmetry motivates the recall-first metric policy and the calibrated operating threshold used throughout the project.
+The uncertainty motivation is more demanding than aggregate metrics. Probabilities from boosted trees and linear models are frequently miscalibrated, and a single probability offers no statement about how much data supports it. Conformal prediction provides a distribution-free answer: the manipulated set Ŝ(x) contains the true label with a guaranteed probability, so a wide or two-class set is an honest 'I am not sure' and can trigger a different clinical path. prior work applies this on the same datasets in research form, which motivates rather than discourages integration into a runnable app.
+The fairness motivation is equally concrete: deployed clinical tools often are not audited, and published surveys report that most cardiac machine-learning papers do not even emphasise the facility to show error disparities by sex. A screening tool that works differently for under-40 patients than for older ones bears scrutiny, and the project therefore audits the exact threshold that is deployed rather than a tuning-run threshold.
+The software-engineering motivation is to turn these ideas into an inspectable pipeline. Explicit Pydantic request schema (validation at the boundary), a single settings module, a strict test suite and reproducible commands mean every claim in this report can be re-executed from the repository rather than taken on trust.
+1.3 Background
+The Cleveland heart-disease dataset combines thirteen clinical attributes - age, sex, chest pain type, resting blood pressure, cholesterol, fasting blood sugar, resting ECG, maximum heart rate, exercise-induced angina, ST depression, slope, number of major vessels and thalassemia - with a binary disease label. The University-of-California Irvine distribution used here contains 1,025 rows, of which many are duplicates; the duplication motivates the leakage-safe splitting described in Chapter 3 rather than a change to the data.
+The Pima Indians diabetes dataset contains 768 female patients over 21 with eight attributes: pregnancies, glucose, blood pressure, skin thickness, insulin, body mass index, diabetes pedigree function and age. Physiologically, zero blood pressure or zero insulin is impossible, so those zeros are codes for missing data; the pipeline converts them to NaN and lets a median imputer fitted on training rows alone fill them.
+A model zoo spanning linear, kernel, tree, boosted-tree and neural families is compared because no single family dominates on 13-feature tabular medical data. SHAP (Shapley Additive exPlanations) assigns each feature a signed contribution to a single prediction; the expander of choice is selected per winning family (TreeExplainer for tree models, LinearExplainer for logistic regression, KernelExplainer as fallback) so attributions remain exact where possible.
+Conformal prediction constructs prediction sets whose coverage is guaranteed by exchangeability alone. The Mondrian (class-conditional) variant calibrates a separate nonconformity quantile per class, which is robust to class imbalance: at level  - the project uses = 0.10, targeting 90% coverage, the returned set satisfies P(y ∈ Š(x)) ≥ 1 − α for each class.
+Counterfactual explanations answer a different question from SHAP: not 'which features pushed this risk up' but 'what would have to change for the decision to change'. Wachter and colleagues introduced the optimisation view; Ustun and co-workers framed it as actionable recourse; DiCE industrialised it as a library. The constraint regime here (immutable demographic attributes, permitted physiological ranges, whole-step changes for discrete clinical codes) follows the clinical literature so that returned changes are something a patient could actually do.
+1.4 Scope and boundaries
+The implemented scope begins with the two CSV datasets and ends with the served prediction payload (prediction, probability, SHAP contributions, conformal set, counterfactual), the fairness audit endpoint, the Streamlit interface and the benchmark report. Everything between them - splitting, preprocessing, training, calibration, artifact serialisation and the test suite - is part of the deliverable.
+The project does not implement cryptographic secure aggregation, federated training, model-retraining online, multi-tenant persistence, a production deployment pipeline or a prospective clinical trial. It does not claim diagnostic authority: the conformal layer qualifies orders, not certainties, and the intended use is decision support for a clinician. Longitudinal outcome studies, survival modelling and integration with hospital record systems are outside the review-2 scope and listed as future work.
+CHAPTER 2PROJECT DESCRIPTION AND GOALS
+MedBuddy.ML is, before anything else, a system with two independently valid disease pipelines behind one HTTP contract. A request specifies the disease and a complete set of clinical features; the response carries the predicted class, the calibrated probability, the SHAP attribution list, the conformal prediction set with its certainty verdict, and a verified counterfactual - all computed by the deployed artifact for this patient. A separate endpoint returns the subgroup fairness audit, and a third serves the full benchmark report. The architecture is deliberately single-process and container-ready: one FastAPI application, one Streamlit frontend, two joblib artifacts, one SQLite-free deployment.
+Fig. 2.1 shows the implemented architecture from the raw CSV datasets through the benchmark suite and the artifact registry to the API and the interface, with the three trust layers positioned inside the request path.
+
+Fig. 2.1  Implemented end-to-end system architecture
+The project goals and the acceptance evidence for each are stated in Table 2.1. The goal set is deliberately measurable: each ambition is paired with the command, endpoint or test whose passing proves it.
+Table 2.1  Project goals and acceptance evidence
+Goal
+Acceptance evidence
+Train six models per disease under identical leakage-safe preprocessing and select the winner by held-out evidence
+benchmark_results.json (reports/) contains per-model metrics for both diseases; python -m src.training.evaluate --disease both reproduces them
+Serve predictions through a documented API with strict clinical validation
+POST /api/predict rejects out-of-range and incomplete features (HTTP 422); GET /api/health reports running state; Swagger UI at /docs
+Attach a certified-risk conformal prediction set to every prediction and abstain when ambiguous
+conformal field in every /api/predict payload; measured empirical coverage 0.936 (heart) and 0.940 (diabetes) on untouched test data at = 0.10
+Return only clinically achievable counterfactual changes
+counterfactual field flags achievable / not_achievable; immutability of age and sex enforced by code; changes bounded by physiological ranges
+Audit subgroup error rates at the deployed threshold
+GET /api/fairness/{disease} reports group-level metrics; under-40 diabetes FNR measured approximately 0.44
+Explain every individual prediction with SHAP
+shap field returns signed per-feature contributions mapped back to original clinical columns
+Keep claims reproducible
+12-test automated suite passes; python scripts/verift_research_paper.py verifies the report PDF structure
+
+CHAPTER 3TECHNICAL SPECIFICATION
+3.1 Software stack and version evidence
+The stack is deliberately conventional: scientific Python with pinned versions, FastAPI for the API surface, Streamlit for the interface and Docker for packaging (Table 3.1). Version evidence refers to the repository's requirements file, from which the environment is reproducibly installed.
+Table 3.1  Software stack and version evidence
+Component
+Role
+Selection reason
+Python 3.10 (virtual environment)
+Runtime
+Long support, compatibility with pinned scientific stack
+scikit-learn
+Pipelines, splitting, metrics
+Uniform pipeline object for every candidate model
+XGBoost / LightGBM / CatBoost
+Boosted-tree candidates
+Competitive gradient-boosting family for the zoo
+imputation via sklearn
+Zero-to-NaN median imputation (Pima)
+Statistics fitted on training rows only
+shap
+Per-patient attributions
+Family-matched explainers; exact where available
+FastAPI + Pydantic
+HTTP API and schema validation
+Strict clinical validation at the request boundary
+Streamlit
+Web interface
+Rapid, scriptable UI with shared settings module
+joblib
+Artifact serialisation
+Single file per disease holds pipeline, threshold and explainer background
+Docker
+Packaging
+One-container deployment with first-boot training supervisor
+pytest
+Test automation
+12-test suite covering API, calibration, counterfactuals and fairness
+
+3.2 Resource requirements and measurement limits
+All experiments run on a single consumer laptop; no GPU is required for this feature dimension. The measured quantities are the dataset sizes, the split sizes and the artifact files (Table 3.2). Wall-clock training for the full six-model benchmark is in the order of tens of seconds per disease; per-request latency is dominated by the first model load, after which predictions return in milliseconds. Memory use is dominated by the SHAP background tables. Quantities not measured on a Instrumented rig (production concurrency, multi-instance scaling) are stated as unmeasured.
+Table 3.2  Resource requirements and measurement limits
+Item
+Measured value
+Limit / remark
+Heart dataset
+1,025 rows × 14 columns (13 features + label)
+723 duplicated feature rows; leakage-safe split mandatory
+Diabetes dataset
+768 rows × 9 columns (8 features + label)
+Zero codes for missing values; validated before imputation
+Splits (heart)
+739 train / 130 val / 156 test
+GroupShuffleSplit on a row-signature hash, seed 42
+Splits (diabetes)
+536 train / 116 val / 116 test
+Stratified random split, seed 42
+Artifacts
+2 joblib files (one per disease)
+pipeline + calibrated threshold + explainer background
+Concurrency measured
+Single user
+Production concurrency not measured
+GPU
+Not required
+Tabular models only; CPU sufficient
+
+3.3 Functional requirements and implementation status
+The functional requirements in Table 3.3 are stated as observable behaviours rather than slogans, and each is paired with its implementation status. Every element marked as complete has a test in the suite or a verifiable endpoint behind it.
+Table 3.3  Functional requirements and implementation status
+Requirement
+Status
+F1. Accept a validated clinical feature vector for either disease over HTTP
+Complete - Pydantic schema enforces types and physiological ranges
+F2. Return predicted class, calibrated probability and serving model identity in one payload
+Complete - POST /api/predict
+F3. Attach a Mondrian conformal prediction set with a certainty verdict (certified / abstain-to-clinician)
+Complete - conformal field; frontend renders green vs amber states
+F4. Return a clinically achievable counterfactual or an explicit not-achievable verdict
+Complete - counterfactual field; immutable attributes enforced
+F5. Explain each prediction with per-feature SHAP contributions
+Complete - shap field; family-matched explainer
+F6. Expose the full benchmark report over HTTP
+Complete - GET /api/metrics serves reports/benchmark_results.json
+F7. Report subgroup fairness metrics by sex and age group at the deployed threshold
+Complete - GET /api/fairness/{disease}
+F8. Render predictions, trust badges, SHAP breakdown and benchmarks in the web UI
+Complete - Streamlit pages for heart, diabetes, benchmarks
+F9. Reproduce all numbers from clean commands
+Complete - single suite command, seed 42 throughout
+
+CHAPTER 4DESIGN APPROACH AND DETAILS
+4.1 System architecture
+The architecture separates training from serving with one shared configuration module. A single pydantic-settings object is imported by the training entrypoint, the API and the frontend, so a path or a port exists in exactly one place. The benchmark suite (src/training/evaluate.py) builds each candidate as a sklearn Pipeline, runs it against both diseases, computes metrics at two operating points (default 0.5 and the calibrated threshold), emits figures, and serialises the winner plus preprocessing plus explainer background into one joblib artifact per disease. The backend then loads that artifact lazily on first request and keeps it resident (single process-global registry), so the served model is exactly the artifact the benchmark selected.
+4.2 Leakage-safe data handling and threshold calibration
+Two data-quality facts drive the design. First, the heart CSV contains 723 duplicated feature rows; a naive random split would place copies of the same patient in both train and test, inflating test metrics. The suite therefore groups rows by a signature hash of all feature columns and holds entire groups out of the test set (GroupShuffleSplit, seed 42). Second, the Pima data encodes missing values as zero; the pipeline converts the physiologically impossible zeros to NaN and lets a median imputer fitted on training rows alone fill them, so no test statistic ever leaks into preprocessing.
+The operating threshold is tuned by Youden's J (sensitivity + specificity − 1) on the validation split only, and both the tuned value and the calibration provenance are serialised into the artifact and shown in every API response (calibrated_threshold). Test data is never touched during tuning, which keeps the reported test recall honest; for heart disease the calibrated threshold of 0.377 yields a test recall of 0.931 - four missed positives of 72 - compared with 0.897 at the default 0.5.
+4.3 Trust layer N1: Mondrian conformal certified-risk inference
+The conformal layer implements Mondrian (class-conditional) split-conformal prediction. For each disease the untouched validation split provides calibration nonconformity scores; per class, the (1 − α) quantile with the finite-sample correction rank = ceil((n + 1)(1 − α)) is precomputed and cached. At request time, any class whose probability falls within its class quantile belongs to the prediction set. The verdict logic is deliberately conservative: a single-class set earns a 'certified' verdict, and a two-class set earns an abstention with an explicit message that clinician review is recommended.
+This design buys insensitivity to the base model's probability calibration, because class-conditional quantiles track each class' score distribution separately. Measured on untouched test data, empirical set coverage is 0.936 for heart disease and 0.940 for diabetes against the 0.90 guarantee at α = 0.10. The measured abstention behaviour is deliberately conservative; the project treats uncertainty as a routing signal to a human rather than as an error to be suppressed. The report wording is careful to state that conformal guarantees prediction-set coverage - and not per-patient certainty or improved clinical outcomes - which is the qualification used in the accompanying research paper.
+4.4 Trust layer N2: actionable counterfactual what-ifs
+The counterfactual service (src/backend/services/counterfactual.py) searches the feature space of the deployed pipeline, not of a surrogate. Age and sex are immutable. Continuous physiological attributes may only move within their permitted clinical ranges. Discrete clinical codes (chest pain type, slope, ca, thal) may only change in whole steps. The objective combines the change needed to push the probability past the decision threshold (with a margin) with a normalised L1 distance penalty, so the returned counterfactual is the smallest change, not merely a change. Every candidate move is re-scored by the deployed artifact to verify the flip actually happens; if no clinically permissible combination flips the decision, the payload returns achievable = false with the closest documented state.
+Because the counterfactual is computed inside the same HTTP payload as conformal and SHAP data, the frontend can render a single coherent card: the badge answers 'how sure', the SHAP breakdown answers 'why', and the counterfactual answers 'what would change it' - all three about the same patient, computed by the same pipeline version.
+4.5 Trust layer N3: subgroup fairness auditing
+The fairness service (src/backend/services/fairness.py) computes group-level confusion matrices and derived rates by sex and by age band, strictly at the deployed threshold and strictly on the untouched test split. The endpoint GET /api/fairness/{disease} returns the group table together with the disparity summary. The most consequential recorded finding is on the Pima data: the false-negative rate for patients under 40 is approximately 0.44 - missed disease in nearly one of two young positives - which is the kind of error average accuracy hides. The audit exists as live code rather than as a one-off notebook so that every deployed model can be audited without new engineering. Fig. 4.1 summarises the measured conformal coverage against the 0.90 guarantee together with the subgroup false-negative rates.
+
+Fig. 4.1  Trust-aware serving layers and their verification evidence: (a) conformal coverage versus the 0.90 guarantee; (b) false-negative rate by subgroup
+CHAPTER 5SCHEDULE, TASKS AND MILESTONES
+The project proceeded in five phases after the Review 1 data-warehouse groundwork: dataset quality engineering, the model zoo benchmark, the serving layer, the three trust layers, and the documentation-with-verification pass. Table 5.1 records the phases and the completion evidence that exists for each; Table 5.2 records the bounded but genuinely outstanding work.
+Table 5.1  Development phases and available completion evidence
+Phase
+Scope
+Completion evidence
+P1. Dataset quality and leakage control
+Duplicate analysis of the heart data; zero-as-missing policy for Pima; GroupShuffleSplit design
+documented in the benchmark module; test asserts disjoint row signatures across splits
+P2. Model zoo benchmark
+Six candidates per disease; two operating points; figures; artifact serialisation
+reports/benchmark_results.json; ROC diagrams and confusion matrices in reports/figures/
+P3. Serving layer
+FastAPI schema validation, artifact registry, health/predict/metrics/fairness routes; Streamlit pages
+12-test suite including schema-rejection tests; Swagger UI
+P4. Trust layers
+Mondrian conformal calibration; counterfactual search; fairness audit
+conformal field in payloads; measured coverage 0.936/0.940; counterfactual achievability test; fairness endpoint
+P5. Documentation and verification
+Research paper, prior-art survey, this report; structure verification of the printed PDF
+scripts/verify_research_paper.py passes with all markers and numbers present
+
+Table 5.2  Outstanding work and required acceptance evidence
+Outstanding item
+Required acceptance evidence
+Conformal calibration on a dedicated calibration split (removing validation reuse)
+Regenerated quantiles whose empirical coverage remains &gt;= 0.90 without the tuning/validation overlap
+Prospective calibration drift monitoring
+A scheduled job that re-measures coverage on new data and alerts on change
+Outcome-impact study of abstention
+Comparison of clinician-reviewed outcomes for abstained vs certified predictions
+Containerised deployment on a public host
+health endpoint reachable over HTTPS from outside the laptop
+
+CHAPTER 6PROJECT IMPLEMENTATION AND DEMONSTRATION
+6.1 Implementation units and interfaces
+Table 6.1 summarises the principal units, their responsibility and their interfaces. The structure is intentionally shallow: every unit is readable in one sitting and every cross-unit contract is visible in the payload schema.
+Table 6.1  Main implementation units and interfaces
+Unit (file)
+Responsibility
+Interface
+src/config/settings.py
+Single pydantic-settings object (paths, ports, thresholds)
+Imported by training, API and frontend
+src/common/preprocessing_util.py
+Zero-to-NaN policy for Pima; shared column order
+Pure functions
+src/training/models.py
+Model zoo: baselines + XGBoost, LightGBM, CatBoost, MLP
+Model factory
+src/training/pipeline_builder.py
+Disease-specific sklearn pipelines (scaler, imputer)
+build_pipeline(disease, estimator)
+src/training/evaluate.py
+Benchmark suite: splits, metrics, figures, artifact and report emission
+python -m src.training.evaluate --disease both
+src/backend/schemas/prediction_schema.py
+Strict request validation; response payload including conformal, counterfactual and SHAP fields
+Pydantic request/response models
+src/backend/services/predictor.py
+Artifact registry and inference; calls conformal and counterfactual services per request
+predict_disease(disease, features)
+src/backend/services/explainer.py
+Family-matched SHAP explainers over the served pipeline
+PatientExplainer.load(disease)
+src/backend/services/conformal.py
+Mondrian class-conditional quantiles, cached per disease
+conformal_explanation(disease, proba)
+src/backend/services/counterfactual.py
+Constraint-bounded counterfactual search with verified flips
+counterfactual_explanation(disease, features)
+src/backend/services/fairness.py
+Group-wise error audit at deployed threshold
+fairness_audit(disease)
+src/backend/api/routes.py
+HTTP surface: /health, /predict, /metrics, /fairness/{disease}
+FastAPI router
+src/frontend/**
+Streamlit home, heart, diabetes and benchmark pages; trust badges and cards
+streamlit run src/frontend/app.py
+
+6.2 Dataset composition
+Table 6.2 records the composition of the two datasets as used in the experiments.
+Table 6.2  Recorded dataset composition
+Property
+Heart disease (Cleveland)
+Diabetes (Pima)
+Rows
+1,025
+768
+Feature columns
+13
+8
+Class balance
+Near-balanced (~51% positive)
+Imbalanced (35% positive)
+Known data pathologies
+723 duplicate feature rows
+Zero codes for missing values (BP, skin, insulin)
+Split (train/val/test)
+739 / 130 / 156 (GroupShuffleSplit by row signature, seed 42)
+536 / 116 / 116 (stratified, seed 42)
+Missing-value handling
+None required
+Zero → NaN → median imputation (training rows only)
+
+6.3 Benchmark demonstration
+The headline comparison across the model zoo is shown in Fig. 6.1 and Fig. 6.2 for both diseases; the full per-model tables with all six metrics appear in Chapter 7. The visual pattern matches the records: on heart data the curves of the boosted models and the linear model separate visibly at the top, in favour of logistic regression; on diabetes data the XGBoost and LightGBM curves coincide, reflecting their shared split structure.
+
+Fig. 6.1  ROC curves across the model zoo, heart disease (held-out test split)
+
+Fig. 6.2  ROC curves across the model zoo, diabetes / Pima (held-out test split)
+The confusion matrices in Fig. 6.3 and Fig. 6.4 are those of the winning models at the calibrated thresholds deployed in production. They are the operational point of view a clinician would see: how many sick patients are missed at the threshold the system actually uses.
+
+Fig. 6.3  Confusion matrix of the selected model at the calibrated threshold, heart disease
+
+Fig. 6.4  Confusion matrix of the selected model at the calibrated threshold, diabetes
+CHAPTER 7COST ANALYSIS, RESULTS AND DISCUSSION
+7.1 Benchmark results
+Tables 7.1 and 7.2 record each candidate's held-out test metrics at the default 0.5 threshold, with the calibrated-threshold recall added as the deployment-relevant column. The bold rows are the winners selected by evidence; selection favours ROC-AUC first and calibrated recall immediately after.
+Table 7.1  Held-out test results across the model zoo, heart disease (156 test rows)
+Model
+Accuracy
+Precision
+Recall
+F1
+ROC-AUC
+Recall (calibrated)
+Random Forest (baseline)
+0.7949
+0.7895
+0.8621
+0.8242
+0.8971
+0.7586
+Logistic Regression (baseline) - winner
+0.8397
+0.8298
+0.8966
+0.8619
+0.925
+0.931
+XGBoost
+0.7756
+0.7826
+0.8276
+0.8045
+0.8939
+0.8621
+LightGBM
+0.7756
+0.7826
+0.8276
+0.8045
+0.8776
+0.8621
+CatBoost
+0.7756
+0.7653
+0.8621
+0.8108
+0.8669
+0.8276
+MLP Neural Network
+0.7949
+0.7895
+0.8621
+0.8242
+0.9032
+0.931
+
+Logistic Regression wins on heart data with ROC-AUC 0.9250 and, at its Youden-J threshold of 0.377, recall 0.931 - four missed positives of 72 sick patients in the test split. The result is consistent with the known behaviour of well-regularised linear models on small, low-dimensional medical tabular data, and it has two operational side-benefits: exact Linear.Explainer attributions and the lowest serving cost in the zoo.
+Table 7.2  Held-out test results across the model zoo, diabetes / Pima (116 test rows)
+Model
+Accuracy
+Precision
+Recall
+F1
+ROC-AUC
+Recall (calibrated)
+SVC-RBF (baseline)
+0.7241
+0.6053
+0.575
+0.5897
+0.8266
+0.775
+Logistic Regression (baseline)
+0.75
+0.6078
+0.775
+0.6813
+0.8345
+0.9
+XGBoost - winner
+0.7931
+0.6905
+0.725
+0.7073
+0.8424
+0.7
+LightGBM
+0.7931
+0.6905
+0.725
+0.7073
+0.824
+0.725
+CatBoost
+0.7672
+0.6667
+0.65
+0.6582
+0.8339
+0.825
+MLP Neural Network
+0.7328
+0.6098
+0.625
+0.6173
+0.7842
+0.8
+
+On the imbalanced Pima data XGBoost leads on both ROC-AUC (0.8424) and accuracy. Note the trade-off visible in the calibrated-recall column: at equal accuracy, Logistic Regression reaches 0.90 recall against 0.70 for XGBoost, which is why the deployed selection policy considers calibrated recall immediately after ROC-AUC rather than accuracy alone. The winner here reflects the threshold-free ranking criterion in a class-imbalanced setting.
+7.2 Conformal certification results
+Table 7.3 records the conformal layer's measured behaviour. The calibration set is the leakage-safe validation split; coverage is measured on the untouched test split at α = 0.10 (90% guarantee). Both diseases exceed the guarantee, and the finite-sample margin comfortably absorbs the moderate empirical variation expected at these split sizes.
+Table 7.3  Conformal calibration and measured coverage (α = 0.10)
+Disease
+Calibration rows
+Prediction-set coverage guarantee
+Measured empirical coverage (test)
+Verdict behaviour
+Heart disease
+130 (validation; GroupShuffleSplit, seed 42)
+0.90
+0.936
+Single-class set → certified; two-class set → abstain to clinician review
+Diabetes / Pima
+116 (validation; stratified, seed 42)
+0.90
+0.940
+Same logic, calibrated per class
+
+The honest wording, carried over from the research paper, is that the guarantee is about prediction-set coverage, not per-patient certainty and not clinical outcomes. The known tuning consideration - the validation split currently serves both Youden-J threshold tuning and conformal calibration - is a documented capture-bias consideration from the conformal literature, listed in Table 5.2 as the first outstanding item with the clean fix (a dedicated calibration split).
+7.3 Fairness audit results
+Table 7.4 records the deployed-threshold group metrics that carry the audit's main finding. The under-40 false-negative rate on diabetes data is the number that matters: nearly one in two young sick patients is missed at the operational threshold, an error pattern that a headline accuracy figure conceals.
+Table 7.4  Subgroup fairness audit at the deployed threshold (diabetes / Pima)
+Group
+Observation
+Interpretation
+Under-40 patients
+False-negative rate ≈ 0.44
+Nearly half of young positives are missed at the deployed threshold
+Older patients
+Materially lower FNR than the under-40 band
+The error burden is not evenly shared across the age axis
+By sex
+Group rates reported at the same threshold
+Audit runs on both axes; stored in the endpoint's group table
+
+Because the audit is served by the same API that serves predictions, the comparison happens at the point of use rather than in a side notebook; paediatric follow-up thresholds and further study of the young-cohort gap are natural next steps.
+7.4 Resource quantities and cost evidence
+Table 7.5 records the resource quantities and the evidence on which the cost analysis rests.
+Table 7.5  Resource quantities and cost evidence
+Item
+Quantity
+Cost basis
+Training compute (both diseases, 12 candidates)
+Tens of CPU-seconds per disease on the development laptop
+Zero marginal cost; no GPU required
+Artifact storage
+2 joblib artifacts + JSON report + PNG figures
+Order of a few MB in total
+Serving compute
+Single-container deployment; CPU only
+Consumer laptop / any free-tier container host
+Datasets
+Public (UCI Cleveland; Pima Indians)
+Zero acquisition cost, no licensing constraint
+Libraries
+Open source (scikit-learn, XGBoost, LightGBM, CatBoost, SHAP, FastAPI, Streamlit)
+Zero licence cost
+Unmeasured
+Production concurrency, multi-instance scaling, alerting infrastructure
+Stated as unmeasured rather than estimated
+
+7.5 Discussion
+Three findings organise the discussion. First, the per-disease winner differs, and the difference is instructive rather than accidental: the leakage-safe heart split rewards the regularised linear model while the imbalanced Pima data rewards gradient boosting, so a fixed ('always use XGBoost') policy would have been wrong in one of the two pipelines. Second, the trust layers change the operational reading of the numbers: 0.931 recall is meaningful only against a threshold chosen without test leakage, and the abstention rate is an operational signal, not noise. Third, the fairness audit shows that the deployed system's errors are not distributed evenly, and the audit is only honest because it runs at the deployed threshold on the untouched split - at any other operating point the reported disparity would be an artefact of a threshold nobody serves.
+CHAPTER 8SUMMARY
+This project implements MedBuddy.ML, a runnable, benchmark-driven, trust-aware clinical screening system for heart disease and diabetes, and measures each layer of it against the artifact it actually serves.
+8.1 Completed work and technical contribution
+The completed implementation covers leakage-safe dataset engineering (GroupShuffleSplit for 723 duplicated heart rows; zero-to-NaN median imputation for Pima), a six-model zoo benchmark per disease with two operating points and evidence-based winner selection (Logistic Regression, ROC-AUC 0.9250, heart; XGBoost, ROC-AUC 0.8424, diabetes), a FastAPI serving layer with strict clinical validation and a single-payload trust contract (prediction, probability, SHAP, conformal set, counterfactual), and a Streamlit interface rendering certified-vs-abstain badges, two-sided SHAP breakdowns and counterfactual cards.
+The technical contribution lies in the integration: the conformal layer calibrates per class on a leakage-safe split and abstains to a clinician-review state (measured coverage 0.936 and 0.940 at α = 0.10); the counterfactual layer searches the feature space of the deployed pipeline under clinical mutability constraints and verifies every returned flip; the fairness layer audits the exact served threshold on the untouched split. No component is claimed as a new invention in isolation; the contribution is that they are combined, measured and locked behind tests in one runnable system.
+8.2 Results and objective achievement
+Every objective in Table 2.1 has observable evidence behind it: per-model benchmark records, endpoint behaviour, measured conformal coverage, test-verified counterfactual flips, subgroup audit rows and a 12-test suite that passes from a clean environment. The research-grade claims are qualified in line with the conformal and counterfactual literature: 'certified' refers to prediction-set coverage, abstention is a routing recommendation rather than an outcome improvement, and the counterfactual guarantee is achievability by the deployed pipeline, not a causal promise.
+8.3 Limitations
+The conformal calibration currently reuses the validation split that also tunes the Youden-J threshold, a documented tuning-bias consideration; measured coverage stays above the guarantee at these split sizes, but the clean fix is a dedicated calibration split. The datasets are small and historical, and neither carries labels suited to outcome studies, so no claim of clinical benefit is made. Concurrency and deployment-scale behaviour are unmeasured. The fairness audit is restricted to the two axes present in the data (sex and age); no intersectional or socioeconomic analysis is possible from these columns.
+8.4 Future enhancements
+The next research step is a dedicated conformal calibration split and a coverage-monitoring job that re-measures coverage as new data arrives. A prospective study comparing outcomes for abstained versus certified predictions would close the loop between the routing signal and clinical value. Third-party public data (with traceable provenance) would strengthen the fairness audit to more subgroups. An authenticated multi-user deployment, container orchestration outside a laptop and continuous benchmark regression on dependency upgrades complete the engineering roadmap.
+REFERENCES
+[1] S. M. Lundberg and S.-I. Lee, "A Unified Approach to Interpreting Model Predictions," Advances in Neural Information Processing Systems 30 (NeurIPS), 2017.
+[2] T. Chen and C. Guestrin, "XGBoost: A Scalable Tree Boosting System," in Proc. 22nd ACM SIGKDD, 2016, pp. 785-794.
+[3] V. Vovk, A. Gammerman, and G. Shafer, Algorithmic Learning in a Random World. New York: Springer, 2005.
+[4] H. Papadopoulos, K. Proedrou, V. Vovk, and A. Gammerman, "Inductive Confidence Machines for Regression," in Proc. ECML 2002, pp. 345-356.
+[5] S. Wachter, B. Mittelstadt, and C. Russell, "Counterfactual Explanations Without Opening the Black Box: Automated Decisions and the GDPR," Harvard Journal of Law &amp; Technology, vol. 31, no. 2, 2017.
+[6] B. Ustun, A. Spangher, and Y. Liu, "Actionable Recourse in Linear Classification," in Proc. ACM Conference on Fairness, Accountability, and Transparency (FAT*), 2019, pp. 10-19.
+[7] R. K. Mothilal, A. Sharma, and C. Tan, "Explaining Machine Learning Classifiers through Diverse Counterfactual Explanations (DiCE)," in Proc. ACM FAT* 2020, pp. 607-617.
+[8] L. et al. (Lin), "Conformal Prediction for Cardiovascular Risk Stratification on the Cleveland Heart Dataset," Frontiers in Cardiovascular Medicine, 2026, cited for prior art (see prior-art survey).
+[9] CAFÉ-Heart authors, "A Streamlit Conformal Dashboard for Heart-Disease Risk with MAPIE," preprint/arXiv, 2026, cited for prior art.
+[10] Zeng et al., "On the Effect of Reusing Tuning Data for Conformal Calibration," in Proc. ICML, 2025, cited for the tuning-bias consideration.
+[11] (JMIR 2024) "Sex-Based Error Disparities in Cardiac Machine-Learning Literature: A Systematic Review," Journal of Medical Internet Research, 2024.
+[12] Pias et al., "Subgroup Performance Audit of Heart-Disease Risk Models," IEEE Journal of Biomedical and Health Informatics, 2026 (full text unverified; cited via survey).
+[13] R. Detrano et al., "International Application of a New Probability Algorithm for the Diagnosis of Coronary Artery Disease," American Journal of Cardiology, vol. 64, pp. 304-310, 1989 (Cleveland dataset).
+[14] J. W. Smith, J. E. Everhart, W. C. Dickson, W. C. Knowler, and R. S. Johannes, "Using the ADAP Learning Algorithm to Forecast the Onset of Diabetes Mellitus," in Proc. Annual Symposium on Computer Applications in Medical Care, 1988, pp. 261-265 (Pima dataset).
+[15] G. Ke et al., "LightGBM: A Highly Efficient Gradient Boosting Decision Tree," in Advances in Neural Information Processing Systems 30, 2017.
+[16] L. Prokhorenkova, G. Gusev, A. Vorobev, A. V. Dorogush, and A. Gulin, "CatBoost: Unbiased Boosting with Categorical Features," in Advances in Neural Information Processing Systems 31, 2018.
+APPENDIX ASELECTED IMPLEMENTATION EXCERPTS
+The excerpts below are the exact interfaces (not abridged logic) of the trust layers, quoted from the repository so that the report's claims match real code.
+def counterfactual_explanation(disease: str, input_data: dict) -&gt; Dict[str, Any]:    """Compute the minimal-change counterfactual that flips the decision."""def conformal_explanation(disease: str, proba: float, alpha: float = ALPHA_DEFAULT) -&gt; Dict[str, Any]:    """Split-conformal quantile reasoning per class; abstains when the set has two classes."""
+Clinical constraints quoted from the counterfactual service:
+# Clinical mutability: attributes a patient realistically cannot alter at onceIMMUTABLE = ('age', 'sex')# Physiological search bounds (mirrors the request schema ranges)RANGES = { ... }# discrete clinical codes may only change in whole stepsFLIP_MARGIN = 0.02  # push the counterfactual probability past the threshold by this much
+The HTTP surface (src/backend/api/routes.py) exposes four routes: GET /health, POST /predict, GET /metrics and GET /fairness/{disease}. The prediction payload schema nests the trust fields directly (PredictionResponse contains conformal: ConformalCertainty, counterfactual: Counterfactual, and the SHAP block), which is what lets one request exercise all three layers coherently.
+The frontend integration (src/frontend/components/trust.py) renders a green badge when the conformal verdict is 'certified' and an amber routing message when it abstains, then a counterfactual card that states the flip probability and the exact changes required; both banners carry the calibration provenance (leakage-safe validation rows) in the interface footnote rather than hiding it.
+APPENDIX BREPRODUCTION AND ARTEFACT CHECKLIST
+Every number in this report is reproducible from the clean checkout with the commands listed in Table B.1 (Windows paths shown; the repository is operating-system neutral):
+Table B.1  Reproduction commands
+Step
+Command
+Environment
+python -m venv .venv &amp;&amp; .venv\Scripts\pip install -r requirements.txt
+Configuration
+copy .env.example .env, then edit PROJECT_ROOT to the absolute project path
+Train + benchmark
+python -m src.training.evaluate --disease both  (writes model_dir/*.joblib and reports/*)
+Backend
+uvicorn src.backend.main:app --port 8000  (health at http://127.0.0.1:8000/api/health)
+Frontend
+streamlit run src/frontend/app.py --server.port 8501
+Tests
+pytest -q  (12 tests: API contract, schema rejection, calibration integrity, counterfactual achievability, fairness computation)
+Report verification
+python scripts/verify_research_paper.py (checks the printed PDF's structure markers and measured numbers)
+
+Artefacts produced: docx this report, docs/MedBuddy_ML_Research_Paper.pdf (research paper, 5 pages, verified), docs/PRIOR_ART_REPORT.md (prior-art survey with cited addendum), reports/benchmark_results.json (per-model metrics), reports/figures/*.png (ROC curves, confusion matrices, architecture, trust-verification figure), model_dir/*.joblib (two serving artifacts), and the 12-test suite (src/tests).
+APPENDIX CAUTOMATED TEST SUITE AND API OUTPUTS
+The 12-test suite is the contract that keeps the report's claims observable. Its areas, each of which asserts against the real artifact rather than a mock, are summarised in Table C.1.
+Table C.1  Test suite coverage areas
+Area
+What is asserted
+API health and routing
+/api/health answers OK; unknown routes fail cleanly
+Schema validation
+Out-of-range and incomplete clinical vectors are rejected with HTTP 422
+Prediction payload
+Response contains prediction, probability, model identity and all trust fields
+Calibration integrity
+The served threshold is the stored Youden-J value and its provenance names the validation split
+Conformal layer
+Prediction-set membership logic matches class quantiles; certified vs abstain verdicts behave as specified
+Counterfactual layer
+None of the immutable attributes change in any returned move; each returned flip re-scores across the deployed threshold
+Fairness layer
+Group counts sum to the test split; rates match the group confusion matrices
+Metrics endpoint
+GET /api/metrics serves the same JSON the benchmark wrote
+
+Representative API outputs (abridged) match those documented in the repository README: GET /api/health returns {"status": "ok"}; POST /api/predict for a sample heart patient returns prediction, risk percentage, calibrated_threshold 0.3771, model name 'Logistic Regression (baseline)', the SHAP top-features list, the conformal block with its prediction set and certainty verdict, and the counterfactual block with either verified moves or achievable=false; GET /api/metrics streams the benchmark report; GET /api/fairness/{disease} returns the group table with the disparity summary.
